@@ -6,7 +6,7 @@
 
 ### Date: 01/07/2025
 
-## 1. App Idea
+## 1. Game Idea
 
 The protagonist awakens in a fragmented dream world, stripped of their identity. Their journey is one of self-discovery, where they face manifestations of their regrets, fears, and trauma. The ultimate goal is to reconstruct their memories and come to terms with their life’s events. At the end, they realize they've been in a long-term coma, and their journey symbolizes acceptance and letting go.
 
