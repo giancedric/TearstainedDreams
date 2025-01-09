@@ -35,13 +35,15 @@ The success of Tearstained Dreams will be measured by its ability to evoke a str
 
 ## 6. Technical Requirements
 
-- Primary Game Engine:
-
-    - Godot
+- Single Player game
 
 - Art and Visuals
 
 - Audio Design
+
+- Primary Game Engine:
+
+    - Godot
 
 - Performance and Optimization:
 
@@ -49,8 +51,8 @@ The success of Tearstained Dreams will be measured by its ability to evoke a str
         - PC and Console
     - Optimization Goals:
         - 60 FPS in a mid-range PC
-- Single Player game
-- System Requirements:
+
+- Estimated System Requirements:
 
     - Recommended System:
         - Processor: Intel Core i5 or AMD equivalent.
@@ -63,4 +65,3 @@ The success of Tearstained Dreams will be measured by its ability to evoke a str
         - Graphics: Basic integrated GPUs or better.
         - RAM: 4GB
         - Storage: 3GB of free space
-        
