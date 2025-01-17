@@ -1,0 +1,141 @@
+[gd_scene load_steps=13 format=3 uid="uid://dv5eslck8bt4q"]
+
+[ext_resource type="Texture2D" uid="uid://x13ojgarfj5a" path="res://art/tilesets/free.png" id="1_j8kcn"]
+
+[sub_resource type="GDScript" id="GDScript_v50h7"]
+script/source = "extends CharacterBody2D
+
+
+const SPEED = 50.0
+
+var current_dir = \"none\"
+
+func _ready() -> void:
+	$AnimatedSprite2D.play(\"waddle_left\")
+
+func _physics_process(delta):
+	player_movement(delta)
+	
+func player_movement(_delta):
+	
+	if Input.is_action_pressed(\"right\"):
+		current_dir = \"right\" 
+		play_anim(1)
+		velocity.x = SPEED
+		velocity.y = 0
+	elif Input.is_action_pressed(\"left\"):
+		current_dir = \"left\"
+		play_anim(1) 
+		velocity.x = -SPEED
+		velocity.y = 0
+	elif Input.is_action_pressed(\"down\"):
+		current_dir = \"down\"
+		play_anim(1)  
+		velocity.y = SPEED
+		velocity.x = 0
+	elif Input.is_action_pressed(\"up\"):
+		current_dir = \"up\"
+		play_anim(1) 
+		velocity.y = -SPEED
+		velocity.x = 0
+	else:
+		play_anim(0) 
+		velocity.x = 0
+		velocity.y = 0
+		
+	move_and_slide()
+func play_anim(movement):
+	var dir = current_dir
+	var anim = $AnimatedSprite2D
+	
+	if dir == \"right\":
+		if movement == 1:
+			anim.play(\"waddle_right\")
+	if dir == \"left\":
+		if movement == 1:
+			anim.play(\"waddle_left\")
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wf16h"]
+radius = 5.0
+height = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7w7v"]
+atlas = ExtResource("1_j8kcn")
+region = Rect2(51, 144, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhu0c"]
+atlas = ExtResource("1_j8kcn")
+region = Rect2(34, 144, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwhuq"]
+atlas = ExtResource("1_j8kcn")
+region = Rect2(17, 144, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibyvg"]
+atlas = ExtResource("1_j8kcn")
+region = Rect2(0, 144, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71kus"]
+atlas = ExtResource("1_j8kcn")
+region = Rect2(0, 128, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32jkg"]
+atlas = ExtResource("1_j8kcn")
+region = Rect2(17, 128, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adbr3"]
+atlas = ExtResource("1_j8kcn")
+region = Rect2(34, 128, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxhdo"]
+atlas = ExtResource("1_j8kcn")
+region = Rect2(51, 128, 17, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5hw01"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7w7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhu0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwhuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibyvg")
+}],
+"loop": true,
+"name": &"waddle_left",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71kus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32jkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adbr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxhdo")
+}],
+"loop": true,
+"name": &"waddle_right",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = SubResource("GDScript_v50h7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 3)
+shape = SubResource("CapsuleShape2D_wf16h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5hw01")
+animation = &"waddle_right"

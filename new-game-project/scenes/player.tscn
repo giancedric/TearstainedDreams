@@ -1,0 +1,256 @@
+[gd_scene load_steps=21 format=3 uid="uid://7eqqsaqauerr"]
+
+[ext_resource type="Texture2D" uid="uid://dkp0cgdsn0pg2" path="res://art/characters/mc/finalshadowerd.png" id="1_hycgi"]
+
+[sub_resource type="GDScript" id="GDScript_kiydn"]
+resource_name = "player.gd"
+script/source = "extends CharacterBody2D
+
+
+const SPEED = 50.0
+
+var current_dir = \"none\"
+
+func _ready() -> void:
+	$AnimatedSprite2D.play(\"front_idle\")
+
+func _physics_process(delta):
+	player_movement(delta)
+	
+func player_movement(_delta):
+	
+	if Input.is_action_pressed(\"right\"):
+		current_dir = \"right\" 
+		play_anim(1)
+		velocity.x = SPEED
+		velocity.y = 0
+	elif Input.is_action_pressed(\"left\"):
+		current_dir = \"left\"
+		play_anim(1) 
+		velocity.x = -SPEED
+		velocity.y = 0
+	elif Input.is_action_pressed(\"down\"):
+		current_dir = \"down\"
+		play_anim(1)  
+		velocity.y = SPEED
+		velocity.x = 0
+	elif Input.is_action_pressed(\"up\"):
+		current_dir = \"up\"
+		play_anim(1) 
+		velocity.y = -SPEED
+		velocity.x = 0
+	else:
+		play_anim(0) 
+		velocity.x = 0
+		velocity.y = 0
+		
+	move_and_slide()
+func play_anim(movement):
+	var dir = current_dir
+	var anim = $AnimatedSprite2D
+	
+	if dir == \"right\":
+		if movement == 1:
+			anim.play(\"right_walk\")
+		elif movement == 0:
+			anim.play(\"right_idle\")
+	if dir == \"left\":
+		if movement == 1:
+			anim.play(\"left_walk\")
+		elif movement == 0:
+			anim.play(\"left_idle\")
+	if dir == \"down\":
+		
+		if movement == 1:
+			anim.play(\"front_walk\")
+		elif movement == 0:
+			anim.play(\"front_idle\")
+	if dir == \"up\":
+		if movement == 1:
+			anim.play(\"back_walk\")
+		elif movement == 0:
+			anim.play(\"back_idle\")
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se38e"]
+atlas = ExtResource("1_hycgi")
+region = Rect2(32, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alsqw"]
+atlas = ExtResource("1_hycgi")
+region = Rect2(0, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8tb7"]
+atlas = ExtResource("1_hycgi")
+region = Rect2(32, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_busbg"]
+atlas = ExtResource("1_hycgi")
+region = Rect2(64, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l513v"]
+atlas = ExtResource("1_hycgi")
+region = Rect2(32, 72, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsmiy"]
+atlas = ExtResource("1_hycgi")
+region = Rect2(0, 72, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh60i"]
+atlas = ExtResource("1_hycgi")
+region = Rect2(32, 72, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4njl2"]
+atlas = ExtResource("1_hycgi")
+region = Rect2(64, 72, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_760ja"]
+atlas = ExtResource("1_hycgi")
+region = Rect2(32, 108, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt57d"]
+atlas = ExtResource("1_hycgi")
+region = Rect2(0, 108, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5mmd"]
+atlas = ExtResource("1_hycgi")
+region = Rect2(32, 108, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt43g"]
+atlas = ExtResource("1_hycgi")
+region = Rect2(64, 108, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo86v"]
+atlas = ExtResource("1_hycgi")
+region = Rect2(32, 36, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44eqc"]
+atlas = ExtResource("1_hycgi")
+region = Rect2(0, 36, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwamk"]
+atlas = ExtResource("1_hycgi")
+region = Rect2(32, 36, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn8p5"]
+atlas = ExtResource("1_hycgi")
+region = Rect2(64, 36, 32, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qbemh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_se38e")
+}],
+"loop": true,
+"name": &"back_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alsqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8tb7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_busbg")
+}],
+"loop": true,
+"name": &"back_walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l513v")
+}],
+"loop": true,
+"name": &"front_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsmiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh60i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4njl2")
+}],
+"loop": true,
+"name": &"front_walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_760ja")
+}],
+"loop": true,
+"name": &"left_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt57d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5mmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kt43g")
+}],
+"loop": true,
+"name": &"left_walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo86v")
+}],
+"loop": true,
+"name": &"right_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44eqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwamk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn8p5")
+}],
+"loop": true,
+"name": &"right_walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k23om"]
+radius = 4.0
+
+[node name="player" type="CharacterBody2D"]
+y_sort_enabled = true
+script = SubResource("GDScript_kiydn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7, 8)
+scale = Vector2(0.5625, 0.555556)
+sprite_frames = SubResource("SpriteFrames_qbemh")
+animation = &"back_walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 12)
+shape = SubResource("CircleShape2D_k23om")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 507
+limit_bottom = 375
+limit_smoothed = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
