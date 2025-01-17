@@ -2,7 +2,7 @@
 
 ### Team Members: Gian
 
-### Client: Gian
+### Client: Alex Kiju
 
 ### Date: 01/07/2025
 
