@@ -1,6 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://54jv2ct3kcmk"]
+[gd_scene load_steps=44 format=3 uid="uid://54jv2ct3kcmk"]
 
-[ext_resource type="Script" path="res://scenes/house.gd" id="1_gcyrq"]
+[ext_resource type="Script" path="res://scripts/house.gd" id="1_gcyrq"]
 [ext_resource type="Texture2D" uid="uid://blb1c7pv33md7" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Roof_Tilset.png" id="1_jjvvi"]
 [ext_resource type="Texture2D" uid="uid://wr6kf7ia6p8b" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Walls_Tilset.png" id="2_sjoj3"]
 [ext_resource type="Texture2D" uid="uid://dixohfavsushx" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Sprout Lands color pallet/Sprout Lands defautlt palette.png" id="3_hjgq3"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://ctkpcwnown3ju" path="res://art/tilesets/walls.png" id="7_oxegu"]
 [ext_resource type="Texture2D" uid="uid://c1x0sfic06l3m" path="res://art/tilesets/Floor.png" id="8_sw1qs"]
 [ext_resource type="PackedScene" uid="uid://7eqqsaqauerr" path="res://scenes/player.tscn" id="10_aiqry"]
+[ext_resource type="Texture2D" uid="uid://bunuk6pn8p02i" path="res://art/characters/Enemies/Golem/leftidle.png" id="12_3a8to"]
+[ext_resource type="Texture2D" uid="uid://yddfk4nsb45f" path="res://art/characters/Enemies/Golem/fullleft.png" id="12_nuebc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3o1dv"]
 texture = ExtResource("1_jjvvi")
@@ -1464,21 +1466,6 @@ sources/14 = SubResource("TileSetAtlasSource_s4oxw")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjr3i"]
 size = Vector2(31, 25)
 
-[sub_resource type="Animation" id="Animation_c5ow2"]
-resource_name = "fade"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_6kwr7"]
 length = 0.001
 tracks/0/type = "value"
@@ -1494,11 +1481,140 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_c5ow2"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tbho1"]
 _data = {
 "RESET": SubResource("Animation_6kwr7"),
 "fade": SubResource("Animation_c5ow2")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anv31"]
+size = Vector2(20, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq00o"]
+atlas = ExtResource("12_3a8to")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2vth"]
+atlas = ExtResource("12_3a8to")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwffh"]
+atlas = ExtResource("12_3a8to")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4je7"]
+atlas = ExtResource("12_3a8to")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwmg2"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(384, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlmkd"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(448, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5aep"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(512, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2iwe"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(0, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqcru"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(64, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c15ef"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(128, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8sbs"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(192, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gept3"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(256, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g50f1"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(320, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frnej"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(384, 320, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4slsh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq00o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2vth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwffh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4je7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwmg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlmkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5aep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2iwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqcru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c15ef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8sbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gept3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g50f1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frnej")
+}],
+"loop": false,
+"name": &"summon",
+"speed": 5.0
+}]
 
 [node name="House" type="Node2D"]
 script = ExtResource("1_gcyrq")
@@ -1546,4 +1662,18 @@ libraries = {
 }
 autoplay = "fade"
 
+[node name="house_cutscene" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="house_cutscene"]
+position = Vector2(250, 110.5)
+shape = SubResource("RectangleShape2D_anv31")
+
+[node name="entity" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(275, 107)
+sprite_frames = SubResource("SpriteFrames_4slsh")
+animation = &"idle"
+
 [connection signal="body_entered" from="house_transition_point" to="." method="_on_house_transition_point_body_entered"]
+[connection signal="body_entered" from="house_cutscene" to="." method="_on_house_cutscene_body_entered"]
+[connection signal="animation_finished" from="entity" to="." method="_on_entity_animation_finished"]

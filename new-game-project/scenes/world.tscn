@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://6ptsc1l6rwr8"]
 
-[ext_resource type="Script" path="res://scenes/world.gd" id="1_ocomo"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_ocomo"]
 [ext_resource type="Texture2D" uid="uid://x13ojgarfj5a" path="res://art/tilesets/free.png" id="1_tdwty"]
 [ext_resource type="Texture2D" uid="uid://dj25dy4bdqk5j" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Doors.png" id="2_y3ytt"]
 [ext_resource type="Texture2D" uid="uid://wr6kf7ia6p8b" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Walls_Tilset.png" id="3_ulr42"]

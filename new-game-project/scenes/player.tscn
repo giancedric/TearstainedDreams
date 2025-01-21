@@ -7,11 +7,10 @@ resource_name = "player.gd"
 script/source = "extends CharacterBody2D
 
 
-const SPEED = 50.0
+const SPEED = 65.0
 
 var current_dir = \"none\"
 
-@onready var viewport = get_viewport()
 
 func player():
 	pass
@@ -346,6 +345,7 @@ shape = SubResource("CapsuleShape2D_rdyj4")
 
 [node name="housecam" type="Camera2D" parent="."]
 enabled = false
+zoom = Vector2(1.5, 1.5)
 limit_left = 0
 limit_top = 0
 limit_right = 382

@@ -9,6 +9,7 @@ func _ready() -> void:
 	else:
 		$player.position.x = global.player_exit_house_posx
 		$player.position.y = global.player_exit_house_posy
+	$entity.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,3 +28,12 @@ func change_scenes():
 			get_tree().change_scene_to_file("res://scenes/world.tscn")
 			global.game_first_loadin = false
 			global.finish_changescenes()
+
+
+func _on_house_cutscene_body_entered(body: Node2D) -> void:
+	if body.has_method("player"):
+		$entity.visible = true
+		$entity.play("summon")
+
+func _on_entity_animation_finished() -> void:
+	$entity.play("idle")
