@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://36m82551qt0"]
+
+[ext_resource type="Texture2D" uid="uid://c3o0u4papr8yk" path="res://art/dialogue_box.png" id="1_m2gtd"]
+
+[node name="Dialogue" type="CanvasLayer"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = -1.0
+offset_top = 2.0
+offset_right = 39.0
+offset_bottom = 42.0
+texture = ExtResource("1_m2gtd")

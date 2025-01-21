@@ -1,0 +1,182 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfjg3q6vm2gjf"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_d5shu"]
+[ext_resource type="Texture2D" uid="uid://bl5c58yqbpyrv" path="res://art/sr21146dc33d2aws3 (1).png" id="2_6rcvx"]
+[ext_resource type="FontFile" uid="uid://d2udxi2ym3hv2" path="res://art/fonts/monogram/monogram/ttf/monogram.ttf" id="3_dysda"]
+
+[sub_resource type="Animation" id="Animation_kx55u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b112w"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_68px3"]
+_data = {
+"RESET": SubResource("Animation_kx55u"),
+"fade": SubResource("Animation_b112w")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d5shu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6rcvx")
+expand_mode = 3
+
+[node name="TitleRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 76.0
+offset_right = 729.0
+offset_bottom = 116.0
+color = Color(0, 0, 0, 1)
+
+[node name="PlayRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 575.0
+offset_right = 173.0
+offset_bottom = 615.0
+color = Color(0, 0, 0, 1)
+
+[node name="OptionsRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 502.0
+offset_top = 575.0
+offset_right = 651.0
+offset_bottom = 615.0
+color = Color(0, 0, 0, 1)
+
+[node name="ExitRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 970.0
+offset_top = 575.0
+offset_right = 1097.0
+offset_bottom = 615.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -249.0
+offset_right = 148.0
+offset_bottom = -213.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_dysda")
+theme_override_font_sizes/font_size = 45
+text = "Tearstained Dreams"
+horizontal_alignment = 1
+
+[node name="BlackBg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlackBg"]
+libraries = {
+"": SubResource("AnimationLibrary_68px3")
+}
+autoplay = "fade"
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = -81.0
+offset_right = 174.0
+offset_bottom = -32.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_dysda")
+theme_override_font_sizes/font_size = 50
+action_mode = 0
+text = "Play"
+flat = true
+
+[node name="OptionsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -69.5
+offset_top = -82.0
+offset_right = 69.5
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_dysda")
+theme_override_font_sizes/font_size = 50
+text = "Options
+"
+flat = true
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -158.0
+offset_top = -82.0
+offset_right = -75.0
+offset_bottom = -33.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_dysda")
+theme_override_font_sizes/font_size = 50
+text = "Exit
+"
+flat = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
