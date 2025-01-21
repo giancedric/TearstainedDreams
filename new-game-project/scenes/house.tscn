@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://54jv2ct3kcmk"]
+[gd_scene load_steps=26 format=3 uid="uid://54jv2ct3kcmk"]
 
+[ext_resource type="Script" path="res://scenes/house.gd" id="1_gcyrq"]
 [ext_resource type="Texture2D" uid="uid://blb1c7pv33md7" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Roof_Tilset.png" id="1_jjvvi"]
 [ext_resource type="Texture2D" uid="uid://wr6kf7ia6p8b" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Walls_Tilset.png" id="2_sjoj3"]
 [ext_resource type="Texture2D" uid="uid://dixohfavsushx" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Sprout Lands color pallet/Sprout Lands defautlt palette.png" id="3_hjgq3"]
@@ -1460,7 +1461,47 @@ sources/9 = SubResource("TileSetAtlasSource_1iywc")
 sources/13 = SubResource("TileSetAtlasSource_6mal6")
 sources/14 = SubResource("TileSetAtlasSource_s4oxw")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjr3i"]
+size = Vector2(31, 25)
+
+[sub_resource type="Animation" id="Animation_c5ow2"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6kwr7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tbho1"]
+_data = {
+"RESET": SubResource("Animation_6kwr7"),
+"fade": SubResource("Animation_c5ow2")
+}
+
 [node name="House" type="Node2D"]
+script = ExtResource("1_gcyrq")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -1479,9 +1520,30 @@ layer_4/name = "furniture"
 layer_4/tile_data = PackedInt32Array(65537, 786437, 2, 524291, 262149, 14, 458755, 720901, 12, 524289, 1572869, 17, 720897, 1966085, 17, 65555, 589829, 1, 65556, 655365, 1, 17, 131077, 2, 22, 131077, 2, 65539, 262149, 2, 19, 589829, 6, 20, 655365, 6, 6, 196613, 18, 12, 2031621, 15, -65533, 983054, 9, -65532, 983054, 9, -65531, 983054, 9, -65530, 983054, 9, -65529, 983054, 9, -65534, 983054, 9, -65528, 983054, 9, -65527, 983054, 9, -65526, 983054, 9, -65525, 983054, 9, -65524, 983054, 9, -65523, 983054, 9, -65522, 983054, 9, -65521, 983054, 9, -65520, 983054, 9, -65519, 983054, 9, -65518, 983054, 9, -65517, 983054, 9, -65516, 983054, 9, -65515, 983054, 9, -65514, 983054, 9, -65513, 983054, 9, -65512, 983054, 9, 524313, 983054, 9, 589849, 983054, 9, 655385, 983054, 9, 524312, 983054, 9, 589848, 983054, 9, 655384, 983054, 9, 720920, 983054, 9, 786456, 983054, 9, 786457, 983054, 9, 851993, 983054, 9, 458758, 2162693, 19)
 
 [node name="player" parent="." instance=ExtResource("10_aiqry")]
-position = Vector2(40.7893, 22.7785)
+position = Vector2(13, 33)
 
 [node name="housecollisions" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="housecollisions"]
 polygon = PackedVector2Array(380.17, 4.38992, 376.166, 190.6, 319.435, 189.933, 318.768, 213.96, 287.399, 212.625, 284.062, 187.93, 258.7, 187.93, 260.035, 128.53, 234.673, 126.528, 231.336, 185.928, 149.91, 188.598, 148.575, 173.915, 122.546, 175.249, 119.209, 187.263, 5.08017, 189.933, 2.41049, 127.195, 120.544, 126.528, 123.881, 145.883, 149.91, 145.216, 147.908, 125.86, 163.259, 128.53, 164.594, 87.8174, 163.259, 63.1229, 138.564, 64.4577, 137.897, 77.1387, 5.08017, 76.4713, 4.41275, 17.7383, 139.899, 17.0709, 139.899, 32.4216, 163.259, 32.4216, 165.261, 17.7383, 234.005, 16.4035, 234.673, 95.8264, 260.702, 95.8264, 260.035, 15.7361, 379.503, 14.4012, 386.844, -20.972, -16.2773, -20.972, -12.2728, 214.627, 396.188, 219.299, 388.847, 0.385406)
+
+[node name="house_transition_point" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="house_transition_point"]
+position = Vector2(303, 216)
+shape = SubResource("RectangleShape2D_cjr3i")
+
+[node name="blackbg" type="ColorRect" parent="."]
+offset_left = -60.0
+offset_top = -61.0
+offset_right = 453.0
+offset_bottom = 238.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="blackbg"]
+libraries = {
+"": SubResource("AnimationLibrary_tbho1")
+}
+autoplay = "fade"
+
+[connection signal="body_entered" from="house_transition_point" to="." method="_on_house_transition_point_body_entered"]

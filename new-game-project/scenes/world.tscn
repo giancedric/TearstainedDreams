@@ -1,5 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://6ptsc1l6rwr8"]
+[gd_scene load_steps=29 format=3 uid="uid://6ptsc1l6rwr8"]
 
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_ocomo"]
 [ext_resource type="Texture2D" uid="uid://x13ojgarfj5a" path="res://art/tilesets/free.png" id="1_tdwty"]
 [ext_resource type="Texture2D" uid="uid://dj25dy4bdqk5j" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Doors.png" id="2_y3ytt"]
 [ext_resource type="Texture2D" uid="uid://wr6kf7ia6p8b" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Walls_Tilset.png" id="3_ulr42"]
@@ -84,7 +85,7 @@ texture = ExtResource("1_tdwty")
 4:3/size_in_atlas = Vector2i(5, 5)
 4:3/0 = 0
 4:3/0/y_sort_origin = 25
-4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28.3482, 40.9474, -29.7452, 19.6431, 0, 18.2689, 30.2381, 19.5288, 29.6081, 38.4276)
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25.8361, 37.8632, -8.7307, 36.9071, -8.33385, 19.4457, 8.48528, 19.4454, 9.92126, 37.7008, 25.8361, 37.8632, 28.9914, 13.7886, -28.9914, 15.5563)
 9:3/size_in_atlas = Vector2i(2, 2)
 9:3/0 = 0
 
@@ -561,8 +562,12 @@ sources/10 = SubResource("TileSetAtlasSource_7ljxx")
 sources/5 = SubResource("TileSetAtlasSource_kqj6r")
 sources/11 = SubResource("TileSetAtlasSource_24a6a")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vny20"]
+size = Vector2(9, 7)
+
 [node name="world" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_ocomo")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -580,13 +585,18 @@ layer_3/name = "trees"
 layer_3/y_sort_enabled = true
 layer_3/tile_data = PackedInt32Array(196608, 65541, 0, 262145, 65541, 3, 262165, 65541, 0, 1048578, 65541, 0, 1245200, 65541, 0, 1245211, 65541, 0, 393244, 65541, 0, 327693, 65541, 0, 393230, 5, 3, 1114122, 65541, 0, 65546, 65541, 0, 131082, 65541, 2, 131083, 5, 3, 1376259, 65541, 0, 1310743, 65541, 0, 458775, 65541, 0, 131099, 65541, 0, 196638, 65541, 0, 1376286, 65541, 0, 131088, 65541, 0, 1114118, 196613, 0, 1245184, 196613, 0, 13, 196613, 0, 131079, 196613, 0, 458769, 196613, 0, 196632, 196613, 0, 1114132, 196613, 0, 1376269, 196613, 0, 983069, 196613, 0, -65519, 5, 0, 17, 65541, 3, 786433, 5, 0, 589855, 5, 0, 262147, 11, 0, 393218, 11, 0, 524291, 11, 1, 720898, 11, 1, 655362, 11, 1, 786434, 65547, 2, 786436, 131083, 3, 786441, 131083, 3, 720902, 131083, 3, 720903, 131083, 3, 720908, 131083, 3, 786446, 131083, 3, 720912, 196619, 3, 786449, 196619, 3, 720916, 196619, 3, 720915, 196619, 3, 393223, 5, 3, 589829, 5, 3, 27, 65541, 3, 65561, 65541, 3, 393220, 262149, 2, 851988, 65541, 3, 655376, 65541, 3, 851979, 65541, 3, 655366, 65541, 3, 851970, 65541, 3, 524289, 65541, 3, 327684, 65541, 3, 262149, 5, 3, 851973, 5, 3, 655371, 5, 3, 851984, 5, 3, 655380, 5, 3, 524294, 458757, 3, 458760, 327685, 4)
 
-[node name="player" parent="." instance=ExtResource("11_wdidt")]
-position = Vector2(61, 61)
-
 [node name="collisions" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
 polygon = PackedVector2Array(0, 0, 512, 0, 513, 158, 560, 158, 558, 241, 511, 244, 512, 384, 0, 384, 0, -3, -29, 401, 554, 400, 535, 259, 607, 210, 575, 102, 541, 115, 542, 4, 505, -54, 70, -38, 7, -26, 0, -3)
 
-[node name="Camera2D" type="Camera2D" parent="collisions"]
-position = Vector2(5, 4)
+[node name="player" parent="." instance=ExtResource("11_wdidt")]
+position = Vector2(44, 72)
+
+[node name="houseentrance" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="houseentrance"]
+position = Vector2(56, 45)
+shape = SubResource("RectangleShape2D_vny20")
+
+[connection signal="body_entered" from="houseentrance" to="." method="_on_houseentrance_body_entered"]
