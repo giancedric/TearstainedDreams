@@ -1,0 +1,9 @@
+~ start
+
+if global.game_pause == true:
+	??? : ...
+	??? : Where am I?
+	??? : Who... am I?
+	??? : ...Ugh
+	set global.game_pause = false
+	=> END

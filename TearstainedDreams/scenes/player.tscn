@@ -23,31 +23,31 @@ func _physics_process(delta):
 	current_camera()
 	
 func player_movement(_delta):
-	
-	if Input.is_action_pressed(\"right\"):
-		current_dir = \"right\" 
-		play_anim(1)
-		velocity.x = SPEED
-		velocity.y = 0
-	elif Input.is_action_pressed(\"left\"):
-		current_dir = \"left\"
-		play_anim(1) 
-		velocity.x = -SPEED
-		velocity.y = 0
-	elif Input.is_action_pressed(\"down\"):
-		current_dir = \"down\"
-		play_anim(1)  
-		velocity.y = SPEED
-		velocity.x = 0
-	elif Input.is_action_pressed(\"up\"):
-		current_dir = \"up\"
-		play_anim(1) 
-		velocity.y = -SPEED
-		velocity.x = 0
-	else:
-		play_anim(0) 
-		velocity.x = 0
-		velocity.y = 0
+	if global.game_pause == false:
+		if Input.is_action_pressed(\"right\"):
+			current_dir = \"right\" 
+			play_anim(1)
+			velocity.x = SPEED
+			velocity.y = 0
+		elif Input.is_action_pressed(\"left\"):
+			current_dir = \"left\"
+			play_anim(1) 
+			velocity.x = -SPEED
+			velocity.y = 0
+		elif Input.is_action_pressed(\"down\"):
+			current_dir = \"down\"
+			play_anim(1)  
+			velocity.y = SPEED
+			velocity.x = 0
+		elif Input.is_action_pressed(\"up\"):
+			current_dir = \"up\"
+			play_anim(1) 
+			velocity.y = -SPEED
+			velocity.x = 0
+		else:
+			play_anim(0) 
+			velocity.x = 0
+			velocity.y = 0
 		
 	move_and_slide()
 func play_anim(movement):
@@ -345,7 +345,7 @@ shape = SubResource("CapsuleShape2D_rdyj4")
 
 [node name="housecam" type="Camera2D" parent="."]
 enabled = false
-zoom = Vector2(5, 5)
+zoom = Vector2(4, 4)
 limit_left = 0
 limit_top = 0
 limit_right = 382
@@ -357,10 +357,10 @@ drag_vertical_enabled = true
 
 [node name="worldcam" type="Camera2D" parent="."]
 enabled = false
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 limit_left = 0
 limit_top = 0
-limit_right = 507
+limit_right = 508
 limit_bottom = 375
 limit_smoothed = true
 rotation_smoothing_enabled = true

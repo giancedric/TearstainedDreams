@@ -10,6 +10,8 @@ func _ready() -> void:
 		$player.position.x = global.player_exit_house_posx
 		$player.position.y = global.player_exit_house_posy
 	$entity.visible = false
+	DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "start")
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
