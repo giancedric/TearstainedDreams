@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://54jv2ct3kcmk"]
+[gd_scene load_steps=59 format=3 uid="uid://54jv2ct3kcmk"]
 
 [ext_resource type="Script" path="res://scripts/house.gd" id="1_gcyrq"]
 [ext_resource type="Texture2D" uid="uid://blb1c7pv33md7" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Roof_Tilset.png" id="1_jjvvi"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://7eqqsaqauerr" path="res://scenes/player.tscn" id="10_aiqry"]
 [ext_resource type="Texture2D" uid="uid://bunuk6pn8p02i" path="res://art/characters/Enemies/Golem/leftidle.png" id="12_3a8to"]
 [ext_resource type="Texture2D" uid="uid://yddfk4nsb45f" path="res://art/characters/Enemies/Golem/fullleft.png" id="12_nuebc"]
+[ext_resource type="Texture2D" uid="uid://diuq2bllk7xv8" path="res://art/Gews_Light_blue.png" id="14_di3w5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3o1dv"]
 texture = ExtResource("1_jjvvi")
@@ -1505,6 +1506,50 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_anv31"]
 size = Vector2(20, 41)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f48sq"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(448, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uat3x"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(384, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlkd7"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(320, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1ore"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(256, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ljnd"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(192, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yaqa"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(128, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wextt"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(64, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_geojm"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(0, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgxlp"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(512, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmeaf"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(448, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61oy7"]
+atlas = ExtResource("12_nuebc")
+region = Rect2(384, 384, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_iq00o"]
 atlas = ExtResource("12_3a8to")
 region = Rect2(0, 0, 64, 64)
@@ -1565,6 +1610,44 @@ region = Rect2(384, 320, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_f48sq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uat3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlkd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1ore")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ljnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yaqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wextt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_geojm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgxlp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmeaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61oy7")
+}],
+"loop": false,
+"name": &"disappear",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_iq00o")
 }, {
 "duration": 1.0,
@@ -1576,7 +1659,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i4je7")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -1614,6 +1697,28 @@ animations = [{
 "loop": false,
 "name": &"summon",
 "speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8oemo"]
+atlas = ExtResource("14_di3w5")
+region = Rect2(0, 0, 3072, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iy3i"]
+atlas = ExtResource("14_di3w5")
+region = Rect2(0, 2048, 3072, 2048)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m2mst"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8oemo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iy3i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
 }]
 
 [node name="House" type="Node2D"]
@@ -1674,6 +1779,14 @@ position = Vector2(275, 107)
 sprite_frames = SubResource("SpriteFrames_4slsh")
 animation = &"idle"
 
+[node name="tear" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(274, 108)
+scale = Vector2(0.0141195, 0.0151367)
+sprite_frames = SubResource("SpriteFrames_m2mst")
+frame_progress = 0.00849632
+
 [connection signal="body_entered" from="house_transition_point" to="." method="_on_house_transition_point_body_entered"]
 [connection signal="body_entered" from="house_cutscene" to="." method="_on_house_cutscene_body_entered"]
+[connection signal="body_exited" from="house_cutscene" to="." method="_on_house_cutscene_body_exited"]
 [connection signal="animation_finished" from="entity" to="." method="_on_entity_animation_finished"]

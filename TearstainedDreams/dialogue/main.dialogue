@@ -7,3 +7,9 @@ if global.game_pause == true:
 	??? : ...Ugh
 	set global.game_pause = false
 	=> END
+
+~ houseentity
+
+Entity : █〓 ██ ▙ ▙ ██ ▚▚▘  ▜▛ █▬█ █☰  ▛ ▞▚ ▜▛ █▬█ . .  ██ █〓  ▚▘ ██ ▙▟ 🆁�  ▜▛ █☰ ▞▚ 🆁� ▟▛
+set global.game_pause = false
+=> END
