@@ -1400,7 +1400,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 2.0
+"speed": 1.0
 }]
 
 [node name="MainMenu" type="Control"]
@@ -1554,10 +1554,10 @@ text = "Exit
 flat = true
 
 [node name="tear" type="AnimatedSprite2D" parent="."]
-position = Vector2(561, 475)
+position = Vector2(589, 503)
 scale = Vector2(0.0344035, 0.0339355)
 sprite_frames = SubResource("SpriteFrames_dhmmi")
 autoplay = "default"
-frame_progress = 0.886015
+frame_progress = 0.656747
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
