@@ -1,5 +1,5 @@
 extends Node
-
+var housetear_collected = false
 var game_pause = true
 
 

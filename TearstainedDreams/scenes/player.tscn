@@ -243,8 +243,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rdyj4"]
-radius = 1.66667
-height = 6.0
+radius = 2.0
+height = 6.66667
 
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -255,10 +255,10 @@ script = ExtResource("1_f04s4")
 position = Vector2(7, 9)
 scale = Vector2(0.625, 0.637153)
 sprite_frames = SubResource("SpriteFrames_qbemh")
-animation = &"back_walk"
+animation = &"front_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.33333, 11.3333)
+position = Vector2(7.33333, 13.3333)
 shape = SubResource("CapsuleShape2D_rdyj4")
 
 [node name="housecam" type="Camera2D" parent="."]

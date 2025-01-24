@@ -13,3 +13,20 @@ if global.game_pause == true:
 Entity : █〓 ██ ▙ ▙ ██ ▚▚▘  ▜▛ █▬█ █☰  ▛ ▞▚ ▜▛ █▬█ . .  ██ █〓  ▚▘ ██ ▙▟ 🆁�  ▜▛ █☰ ▞▚ 🆁� ▟▛
 set global.game_pause = false
 => END
+
+~ tearbarrier
+: I shouldn't leave that gem behind.
+=> END
+
+~ houseentry
+???: I have no reason to go back inside.
+=> END
+
+~ tearexplain
+
+set global.game_pause = true
+: This sorrow.. is yours to mend.
+???: This gem.. it makes me feel warm, like a distant memory.
+set global.game_pause = false
+
+=> END

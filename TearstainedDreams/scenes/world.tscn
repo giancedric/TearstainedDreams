@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://6ptsc1l6rwr8"]
+[gd_scene load_steps=31 format=3 uid="uid://6ptsc1l6rwr8"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ocomo"]
 [ext_resource type="Texture2D" uid="uid://x13ojgarfj5a" path="res://art/tilesets/free.png" id="1_tdwty"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cp8g6q1i765p6" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="9_6jmnl"]
 [ext_resource type="Texture2D" uid="uid://blb1c7pv33md7" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Roof_Tilset.png" id="10_58sfc"]
 [ext_resource type="PackedScene" uid="uid://7eqqsaqauerr" path="res://scenes/player.tscn" id="11_wdidt"]
+[ext_resource type="FontFile" uid="uid://d2udxi2ym3hv2" path="res://art/fonts/monogram/monogram/ttf/monogram.ttf" id="15_v80mu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5g0h0"]
 texture = ExtResource("1_tdwty")
@@ -85,7 +86,7 @@ texture = ExtResource("1_tdwty")
 4:3/size_in_atlas = Vector2i(5, 5)
 4:3/0 = 0
 4:3/0/y_sort_origin = 25
-4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25.8361, 37.8632, -8.7307, 36.9071, -8.33385, 19.4457, 8.48528, 19.4454, 9.92126, 37.7008, 25.8361, 37.8632, 28.9914, 13.7886, -28.9914, 15.5563)
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31, 19.5, 29.5, 19, 28.5, 40, -29, 40.5)
 9:3/size_in_atlas = Vector2i(2, 2)
 9:3/0 = 0
 
@@ -565,6 +566,9 @@ sources/11 = SubResource("TileSetAtlasSource_24a6a")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vny20"]
 size = Vector2(9, 7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8deh"]
+size = Vector2(100, 27)
+
 [node name="world" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ocomo")
@@ -596,7 +600,25 @@ position = Vector2(44, 72)
 [node name="houseentrance" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="houseentrance"]
-position = Vector2(56, 45)
+position = Vector2(56, 62)
 shape = SubResource("RectangleShape2D_vny20")
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(170, 194)
+shape = SubResource("RectangleShape2D_f8deh")
+
+[node name="Intructions" type="Label" parent="."]
+visible = false
+offset_left = 79.0
+offset_top = 173.0
+offset_right = 331.0
+offset_bottom = 186.0
+theme_override_fonts/font = ExtResource("15_v80mu")
+theme_override_font_sizes/font_size = 16
+text = "Press \"Tab\" to reveal the path of the tear"
+
 [connection signal="body_entered" from="houseentrance" to="." method="_on_houseentrance_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

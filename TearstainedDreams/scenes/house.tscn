@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://54jv2ct3kcmk"]
+[gd_scene load_steps=63 format=3 uid="uid://54jv2ct3kcmk"]
 
 [ext_resource type="Script" path="res://scripts/house.gd" id="1_gcyrq"]
 [ext_resource type="Texture2D" uid="uid://blb1c7pv33md7" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Roof_Tilset.png" id="1_jjvvi"]
@@ -1278,10 +1278,10 @@ separation = Vector2i(1, 1)
 28:17/0 = 0
 30:17/size_in_atlas = Vector2i(2, 1)
 30:17/0 = 0
-30:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.1191, -7.87451, 14.1741, -8.81945, 14.4891, 6.2996, -14.8041, 7.24454)
+30:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.617, -8.13173, 16.7043, -7.57264, 16.9706, 7.77818, -16.2635, 8.48528)
 30:18/size_in_atlas = Vector2i(2, 1)
 30:18/0 = 0
-30:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.1191, -7.87451, 14.1741, -8.81945, 14.4891, 6.2996, -14.8041, 7.24454)
+30:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.617, -8.13173, 16.7043, -7.57264, 16.9706, 7.77818, -16.2635, 8.48528)
 32:17/size_in_atlas = Vector2i(1, 2)
 32:17/0 = 0
 32:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.2996, -16.379, 7.24454, -16.694, 7.55953, 16.694, -7.87451, 15.434)
@@ -1741,6 +1741,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xwtc"]
 radius = 1487.3
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhj23"]
+size = Vector2(33, 20)
+
 [node name="House" type="Node2D"]
 script = ExtResource("1_gcyrq")
 
@@ -1766,7 +1769,7 @@ position = Vector2(16, 36)
 [node name="housecollisions" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="housecollisions"]
-polygon = PackedVector2Array(380.17, 4.38992, 376.166, 190.6, 319.435, 189.933, 318.768, 213.96, 287.399, 212.625, 284.062, 187.93, 258.7, 187.93, 260.035, 128.53, 234.673, 126.528, 231.336, 185.928, 149.91, 188.598, 148.575, 173.915, 122.546, 175.249, 119.209, 187.263, 5.08017, 189.933, 2.41049, 127.195, 120.544, 126.528, 123.881, 145.883, 149.91, 145.216, 147.908, 125.86, 163.259, 128.53, 164.594, 87.8174, 163.259, 63.1229, 138.564, 64.4577, 137.897, 77.1387, 5.08017, 76.4713, 4.41275, 17.7383, 139.899, 17.0709, 139.899, 32.4216, 163.259, 32.4216, 165.261, 17.7383, 234.005, 16.4035, 234.673, 95.8264, 260.702, 95.8264, 260.035, 15.7361, 379.503, 14.4012, 386.844, -20.972, -16.2773, -20.972, -12.2728, 214.627, 396.188, 219.299, 388.847, 0.385406)
+polygon = PackedVector2Array(380.17, 4.38992, 376.166, 190.6, 319.435, 189.933, 318.768, 213.96, 287.399, 212.625, 284.062, 187.93, 258.7, 187.93, 260.035, 128.53, 234.673, 126.528, 231.336, 185.928, 149.91, 188.598, 148.575, 173.915, 122.546, 175.249, 119.209, 187.263, 6, 189, 6, 128, 2.41049, 127.195, 120.544, 126.528, 123.881, 145.883, 149.91, 145.216, 147.908, 125.86, 163.259, 128.53, 164.594, 87.8174, 163.259, 63.1229, 138.564, 64.4577, 137.897, 77.1387, 5.08017, 76.4713, 4.41275, 17.7383, 139.899, 17.0709, 139.899, 32.4216, 163.259, 32.4216, 165.261, 17.7383, 234.005, 16.4035, 234.673, 95.8264, 260.702, 95.8264, 260.035, 15.7361, 379.503, 14.4012, 386.844, -20.972, -16.2773, -20.972, -12.2728, 214.627, 396.188, 219.299, 388.847, 0.385406)
 
 [node name="house_transition_point" type="Area2D" parent="."]
 
@@ -1825,9 +1828,24 @@ theme_override_font_sizes/font_size = 16
 text = "Press 'E' to interact"
 vertical_alignment = 2
 
+[node name="tearbarrier" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tearbarrier"]
+position = Vector2(303, 193)
+shape = SubResource("RectangleShape2D_uhj23")
+
+[node name="tear2" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(238, 117)
+scale = Vector2(0.0444946, 0.048584)
+sprite_frames = SubResource("SpriteFrames_m2mst")
+autoplay = "default"
+frame_progress = 0.00849632
+
 [connection signal="body_entered" from="house_transition_point" to="." method="_on_house_transition_point_body_entered"]
 [connection signal="body_entered" from="house_cutscene" to="." method="_on_house_cutscene_body_entered"]
 [connection signal="body_exited" from="house_cutscene" to="." method="_on_house_cutscene_body_exited"]
 [connection signal="animation_finished" from="entity" to="." method="_on_entity_animation_finished"]
 [connection signal="body_entered" from="tear/collectarea" to="." method="_on_collectarea_body_entered"]
 [connection signal="body_exited" from="tear/collectarea" to="." method="_on_collectarea_body_exited"]
+[connection signal="body_entered" from="tearbarrier" to="." method="_on_tearbarrier_body_entered"]

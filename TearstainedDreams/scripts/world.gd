@@ -15,10 +15,20 @@ func _process(delta: float) -> void:
 
 func _on_houseentrance_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
-		global.transition_scene = true
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "houseentry")
 		
 func change_scenes():
 	if global.transition_scene == true:
 		if global.current_scene == "world":
 			get_tree().change_scene_to_file("res://scenes/house.tscn")
 			global.finish_changescenes()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.has_method("player"):
+		$Intructions.visible = true
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.has_method("player"):
+		$Intructions.visible = false

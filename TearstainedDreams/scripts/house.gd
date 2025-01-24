@@ -1,8 +1,9 @@
 extends Node2D
 
+var housedialogue_shown = false
 var dialogue_shown = false
 var player_in_area = false
-var tear_collected = false
+
 var cutscene_played = false
 
 # Called when the node enters the scene tree for the first time.
@@ -26,6 +27,7 @@ func _process(_delta: float) -> void:
 		collect_tear()
 	else:
 		$interacttext.visible = false
+	dialogue()
 
 func _on_house_transition_point_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
@@ -77,5 +79,21 @@ func _on_collectarea_body_exited(body: Node2D) -> void:
 
 func collect_tear():
 	if Input.is_action_just_pressed("interact"):
-		tear_collected = true
+		global.housetear_collected = true
 		$tear.visible = false
+
+
+
+
+func _on_tearbarrier_body_entered(body: Node2D) -> void:
+	if body.has_method("player"):
+		if global.housetear_collected == false:
+			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "tearbarrier")
+			var direction = (body.global_position - global_position).normalized()
+			body.global_position.y -= 25
+
+
+func dialogue():
+	if global.housetear_collected == true and housedialogue_shown == false:
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "tearexplain")
+		housedialogue_shown = true
