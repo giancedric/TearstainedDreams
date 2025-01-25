@@ -567,7 +567,7 @@ sources/11 = SubResource("TileSetAtlasSource_24a6a")
 size = Vector2(9, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8deh"]
-size = Vector2(100, 27)
+size = Vector2(253, 27)
 
 [node name="world" type="Node2D"]
 y_sort_enabled = true
@@ -606,7 +606,7 @@ shape = SubResource("RectangleShape2D_vny20")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(170, 194)
+position = Vector2(206.5, 194)
 shape = SubResource("RectangleShape2D_f8deh")
 
 [node name="Intructions" type="Label" parent="."]
