@@ -1834,14 +1834,6 @@ vertical_alignment = 2
 position = Vector2(303, 193)
 shape = SubResource("RectangleShape2D_uhj23")
 
-[node name="tear2" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(238, 117)
-scale = Vector2(0.0444946, 0.048584)
-sprite_frames = SubResource("SpriteFrames_m2mst")
-autoplay = "default"
-frame_progress = 0.00849632
-
 [connection signal="body_entered" from="house_transition_point" to="." method="_on_house_transition_point_body_entered"]
 [connection signal="body_entered" from="house_cutscene" to="." method="_on_house_cutscene_body_entered"]
 [connection signal="body_exited" from="house_cutscene" to="." method="_on_house_cutscene_body_exited"]

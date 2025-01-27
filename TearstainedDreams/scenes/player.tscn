@@ -284,3 +284,14 @@ limit_smoothed = true
 rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="forestcam" type="Camera2D" parent="."]
+position = Vector2(768, 432)
+limit_left = 0
+limit_top = 0
+limit_right = 768
+limit_bottom = 432
+limit_smoothed = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

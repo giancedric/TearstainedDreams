@@ -1,7 +1,35 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqclvirru8h57"]
+[gd_scene load_steps=7 format=3 uid="uid://bo63kmeus727x"]
 
-[ext_resource type="Script" path="res://tear.gd" id="1_snm6b"]
 [ext_resource type="Texture2D" uid="uid://diuq2bllk7xv8" path="res://art/Gews_Light_blue.png" id="2_7e38p"]
+
+[sub_resource type="GDScript" id="GDScript_u85li"]
+script/source = "extends Node2D
+
+var state = \"none\"
+var player_in_area = false
+
+func _ready() -> void:
+	pass 
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if state != \"picked up\":
+		if player_in_area:
+			if Input.is_action_just_pressed(\"interact\"):
+				state = \"picked up\"
+		
+
+
+func _on_collectarea_body_entered(body: Node2D) -> void:
+	if body.has_method(\"player\"):
+		player_in_area = true
+
+
+func _on_collectarea_body_exited(body: Node2D) -> void:
+	if body.has_method(\"player\"):
+		player_in_area = false
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8oemo"]
 atlas = ExtResource("2_7e38p")
@@ -29,7 +57,7 @@ animations = [{
 radius = 15.0
 
 [node name="tear" type="Node2D"]
-script = ExtResource("1_snm6b")
+script = SubResource("GDScript_u85li")
 
 [node name="tear" type="AnimatedSprite2D" parent="."]
 position = Vector2(286, 122)

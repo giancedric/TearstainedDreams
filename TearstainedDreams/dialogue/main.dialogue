@@ -27,8 +27,8 @@ set global.game_pause = false
 set global.game_pause = true
 :An unknown feeling comes within the gem.
 
-???: This gem.. it makes me feel warm.
-???: Like its a distant memory.
+???: This gem.. it feels warm.
+???: Like a distant memory.
 set global.game_pause = false
 
 => END
