@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bfjg3q6vm2gjf"]
+[gd_scene load_steps=34 format=3 uid="uid://bfjg3q6vm2gjf"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_d5shu"]
 [ext_resource type="FontFile" uid="uid://d2udxi2ym3hv2" path="res://art/fonts/monogram/monogram/ttf/monogram.ttf" id="3_dysda"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ckjynpdqllat6" path="res://art/Texture/TX Shadow Plant.png" id="10_euxpj"]
 [ext_resource type="Texture2D" uid="uid://cbkw0lmf5gicx" path="res://art/Texture/TX Struct.png" id="11_qhgie"]
 [ext_resource type="Texture2D" uid="uid://diuq2bllk7xv8" path="res://art/Gews_Light_blue.png" id="13_5ls0w"]
+[ext_resource type="FontFile" uid="uid://b5gi4bu0p1hmg" path="res://art/fonts/NES.tres" id="14_8g11h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nt64s"]
 texture = ExtResource("4_fd362")
@@ -1403,6 +1404,16 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_67hu6"]
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itird"]
+content_margin_left = 4.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0.611765)
+corner_detail = 20
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -1435,30 +1446,6 @@ offset_left = 415.0
 offset_top = 32.0
 offset_right = 729.0
 offset_bottom = 72.0
-color = Color(0, 0, 0, 1)
-
-[node name="PlayRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 58.0
-offset_top = 575.0
-offset_right = 173.0
-offset_bottom = 615.0
-color = Color(0, 0, 0, 1)
-
-[node name="OptionsRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 493.0
-offset_top = 575.0
-offset_right = 642.0
-offset_bottom = 615.0
-color = Color(0, 0, 0, 1)
-
-[node name="ExitRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 970.0
-offset_top = 575.0
-offset_right = 1097.0
-offset_bottom = 615.0
 color = Color(0, 0, 0, 1)
 
 [node name="Title" type="Label" parent="."]
@@ -1499,21 +1486,30 @@ libraries = {
 }
 autoplay = "fade"
 
+[node name="tear" type="AnimatedSprite2D" parent="."]
+position = Vector2(589, 503)
+scale = Vector2(0.0344035, 0.0339355)
+sprite_frames = SubResource("SpriteFrames_dhmmi")
+autoplay = "default"
+frame_progress = 0.656747
+
 [node name="StartButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 56.0
-offset_top = -81.0
-offset_right = 174.0
-offset_bottom = -32.0
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_dysda")
-theme_override_font_sizes/font_size = 50
-action_mode = 0
-text = "Play"
-flat = true
+layout_mode = 0
+offset_left = 65.0
+offset_top = 584.0
+offset_right = 185.0
+offset_bottom = 627.0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(-2, 0)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("14_8g11h")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/hover = SubResource("StyleBoxFlat_67hu6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_itird")
+text = "Play
+"
+icon_alignment = 1
 
 [node name="OptionsButton" type="Button" parent="."]
 layout_mode = 1
@@ -1522,17 +1518,21 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -78.0
-offset_top = -82.0
-offset_right = 61.0
-offset_bottom = -33.0
+offset_left = -95.0
+offset_top = -64.0
+offset_right = 95.0
+offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_dysda")
-theme_override_font_sizes/font_size = 50
-text = "Options
-"
-flat = true
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(-2, 0)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("14_8g11h")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_itird")
+text = "Options"
+icon_alignment = 1
 
 [node name="ExitButton" type="Button" parent="."]
 layout_mode = 1
@@ -1541,23 +1541,21 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -158.0
-offset_top = -82.0
-offset_right = -75.0
-offset_bottom = -33.0
+offset_left = -167.0
+offset_top = -66.0
+offset_right = -48.0
+offset_bottom = -23.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_dysda")
-theme_override_font_sizes/font_size = 50
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(-2, 0)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("14_8g11h")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_itird")
 text = "Exit
 "
-flat = true
-
-[node name="tear" type="AnimatedSprite2D" parent="."]
-position = Vector2(589, 503)
-scale = Vector2(0.0344035, 0.0339355)
-sprite_frames = SubResource("SpriteFrames_dhmmi")
-autoplay = "default"
-frame_progress = 0.656747
+icon_alignment = 1
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
