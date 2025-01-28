@@ -39,3 +39,4 @@ func _on_foresttransition_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		if global.current_scene == "world":
 			get_tree().change_scene_to_file("res://scenes/forest.tscn")
+			global.current_scene = "forest"

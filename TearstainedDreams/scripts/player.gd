@@ -79,9 +79,12 @@ func current_camera():
 	if global.current_scene == "house":
 		$housecam.enabled = true
 		$worldcam.enabled = false
+		$forestcam.enabled = false
 	elif global.current_scene == "world":
 		$housecam.enabled = false
 		$worldcam.enabled = true
+		$forestcam.enabled = false
 	elif global.current_scene == "forest":
 		$forestcam.enabled = true
 		$worldcam.enabled = false
+		$housecam.enabled = false

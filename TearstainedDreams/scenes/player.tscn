@@ -243,8 +243,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rdyj4"]
-radius = 2.0
-height = 6.66667
+radius = 2.66667
+height = 9.33334
 
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -258,7 +258,7 @@ sprite_frames = SubResource("SpriteFrames_qbemh")
 animation = &"front_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6.66666, 13.3333)
+position = Vector2(7.33333, 12)
 shape = SubResource("CapsuleShape2D_rdyj4")
 
 [node name="housecam" type="Camera2D" parent="."]
@@ -286,11 +286,12 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="forestcam" type="Camera2D" parent="."]
-position = Vector2(768, 432)
+enabled = false
+zoom = Vector2(3, 3)
 limit_left = 0
 limit_top = 0
-limit_right = 768
-limit_bottom = 432
+limit_right = 1152
+limit_bottom = 648
 limit_smoothed = true
 rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
