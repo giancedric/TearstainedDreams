@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cp8g6q1i765p6" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="9_6jmnl"]
 [ext_resource type="Texture2D" uid="uid://blb1c7pv33md7" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Roof_Tilset.png" id="10_58sfc"]
 [ext_resource type="PackedScene" uid="uid://7eqqsaqauerr" path="res://scenes/player.tscn" id="11_wdidt"]
-[ext_resource type="FontFile" uid="uid://d2udxi2ym3hv2" path="res://art/fonts/monogram/monogram/ttf/monogram.ttf" id="15_v80mu"]
+[ext_resource type="FontFile" uid="uid://b5gi4bu0p1hmg" path="res://art/fonts/NES.tres" id="16_yaq6k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5g0h0"]
 texture = ExtResource("1_tdwty")
@@ -947,7 +947,8 @@ offset_left = 79.0
 offset_top = 173.0
 offset_right = 331.0
 offset_bottom = 186.0
-theme_override_fonts/font = ExtResource("15_v80mu")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_yaq6k")
 theme_override_font_sizes/font_size = 16
 text = "Press \"Tab\" to reveal the path of the tear"
 
