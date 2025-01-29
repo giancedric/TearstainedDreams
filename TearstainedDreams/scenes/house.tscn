@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bunuk6pn8p02i" path="res://art/characters/Enemies/Golem/leftidle.png" id="12_3a8to"]
 [ext_resource type="Texture2D" uid="uid://yddfk4nsb45f" path="res://art/characters/Enemies/Golem/fullleft.png" id="12_nuebc"]
 [ext_resource type="Texture2D" uid="uid://diuq2bllk7xv8" path="res://art/Gews_Light_blue.png" id="14_di3w5"]
-[ext_resource type="FontFile" uid="uid://d01060ria4jdv" path="res://art/fonts/monogram/monogram/ttf/monogram-extended.ttf" id="15_4fhcb"]
+[ext_resource type="FontFile" uid="uid://b5gi4bu0p1hmg" path="res://art/fonts/NES.tres" id="15_h8xqa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3o1dv"]
 texture = ExtResource("1_jjvvi")
@@ -1818,12 +1818,12 @@ shape = SubResource("CircleShape2D_0xwtc")
 
 [node name="interacttext" type="Label" parent="."]
 visible = false
-offset_left = 218.0
-offset_top = 92.0
-offset_right = 344.0
-offset_bottom = 105.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("15_4fhcb")
+offset_left = 190.0
+offset_top = 90.0
+offset_right = 335.0
+offset_bottom = 106.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("15_h8xqa")
 theme_override_font_sizes/font_size = 16
 text = "Press 'E' to interact"
 vertical_alignment = 2
