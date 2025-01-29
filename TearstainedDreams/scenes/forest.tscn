@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://ruabjv6kp6ao"]
+[gd_scene load_steps=42 format=3 uid="uid://ruabjv6kp6ao"]
 
 [ext_resource type="Texture2D" uid="uid://c58omttyi3osk" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="1_hmruc"]
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_vpecg"]
@@ -1661,6 +1661,46 @@ texture = ExtResource("3_lyecy")
 [sub_resource type="TileSet" id="TileSet_f31yt"]
 sources/0 = SubResource("TileSetAtlasSource_13c4a")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcaom"]
+size = Vector2(383, 108)
+
+[sub_resource type="Animation" id="Animation_lhu5w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_myfnu"]
+resource_name = "flicker"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.966667, 1.56667, 1.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m55bh"]
+_data = {
+"RESET": SubResource("Animation_lhu5w"),
+"flicker": SubResource("Animation_myfnu")
+}
+
 [node name="forest" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_vpecg")
@@ -1693,3 +1733,26 @@ polygon = PackedVector2Array(0, -1, 506, -2, 505, -73, 713, -70, 717, -8, 1149, 
 visible = false
 tile_map_data = PackedByteArray(0, 0, 50, 0, 7, 0, 0, 0, 0, 0, 13, 0, 0, 0, 47, 0, 6, 0, 0, 0, 1, 0, 13, 0, 0, 0, 43, 0, 6, 0, 0, 0, 0, 0, 13, 0, 0, 0, 40, 0, 6, 0, 0, 0, 1, 0, 13, 0, 0, 0, 38, 0, 4, 0, 0, 0, 0, 0, 13, 0, 0, 0)
 tile_set = SubResource("TileSet_f31yt")
+
+[node name="changetomysticalforest" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="changetomysticalforest"]
+position = Vector2(962, 399)
+shape = SubResource("RectangleShape2D_pcaom")
+
+[node name="flicker" type="ColorRect" parent="."]
+z_index = 1
+offset_left = -303.0
+offset_top = -102.0
+offset_right = 1534.0
+offset_bottom = 832.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="flicker"]
+libraries = {
+"": SubResource("AnimationLibrary_m55bh")
+}
+autoplay = "flicker"
+
+[connection signal="body_entered" from="changetomysticalforest" to="." method="_on_changetomysticalforest_body_entered"]
+[connection signal="animation_finished" from="flicker/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

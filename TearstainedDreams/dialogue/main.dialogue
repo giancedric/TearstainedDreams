@@ -32,3 +32,21 @@ set global.game_pause = true
 set global.game_pause = false
 
 => END
+
+~ forestenter
+
+set global.game_pause = true
+???: Ugh.. My head hurts
+set global.game_pause = false
+
+=> END
+
+~ dungeonentrance
+
+set global.game_pause = true
+???: What... Where...?
+???: ...?
+???: WHAT IS HAPPENING?!?!?!
+set global.game_pause = false
+
+=> END
