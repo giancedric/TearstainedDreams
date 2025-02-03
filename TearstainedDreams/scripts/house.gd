@@ -6,8 +6,10 @@ var player_in_area = false
 
 var cutscene_played = false
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	global.current_scene = "house"
 	if global.game_first_loadin == true:
 		$player.position.x = global.player_start_posx
 		$player.position.y = global.player_start_posy
