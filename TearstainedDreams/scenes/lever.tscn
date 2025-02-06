@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://2h17bsqyvga5"]
+
+[ext_resource type="Texture2D" uid="uid://85pfc1itthvn" path="res://art/Dungeons/assets_dungeon.png" id="1_j1qnv"]
+[ext_resource type="Script" path="res://lever.gd" id="2_wv5f3"]
+[ext_resource type="FontFile" uid="uid://b5gi4bu0p1hmg" path="res://art/fonts/NES.tres" id="3_bijq4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppngh"]
+size = Vector2(31, 31)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k02ki"]
+radius = 3.0
+height = 14.0
+
+[node name="lever" type="Sprite2D"]
+position = Vector2(34, 11)
+texture = ExtResource("1_j1qnv")
+hframes = 3
+vframes = 4
+frame = 4
+script = ExtResource("2_wv5f3")
+
+[node name="interaction" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction"]
+position = Vector2(0.5, 4)
+shape = SubResource("RectangleShape2D_ppngh")
+
+[node name="!" type="Label" parent="interaction/CollisionShape2D"]
+visible = false
+offset_left = -3.0
+offset_top = -18.0
+offset_right = 37.0
+offset_bottom = 5.0
+theme_override_fonts/font = ExtResource("3_bijq4")
+text = "!"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 7)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_k02ki")
+
+[connection signal="body_entered" from="interaction" to="." method="_on_interaction_body_entered"]
+[connection signal="body_exited" from="interaction" to="." method="_on_interaction_body_exited"]

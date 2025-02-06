@@ -50,3 +50,8 @@ set global.game_pause = true
 set global.game_pause = false
 
 => END
+
+~ dungeonenter
+
+set global.game_pause = true
+: The order lies in the shadows of your past

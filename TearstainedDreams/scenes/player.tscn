@@ -243,22 +243,23 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rdyj4"]
-radius = 2.0
-height = 5.33334
+radius = 4.31496
+height = 8.62993
 
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
 scale = Vector2(1.5, 1.5)
+collision_layer = 3
 script = ExtResource("1_f04s4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(7, 9)
 scale = Vector2(0.625, 0.637153)
 sprite_frames = SubResource("SpriteFrames_qbemh")
-animation = &"front_idle"
+animation = &"right_walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.33333, 14)
+position = Vector2(7.03636, 13.5546)
 shape = SubResource("CapsuleShape2D_rdyj4")
 
 [node name="housecam" type="Camera2D" parent="."]
@@ -313,9 +314,9 @@ drag_vertical_enabled = true
 enabled = false
 zoom = Vector2(3, 3)
 limit_left = 321
-limit_top = 204
+limit_top = 224
 limit_right = 671
-limit_bottom = 633
+limit_bottom = 608
 limit_smoothed = true
 rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
