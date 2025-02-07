@@ -26,7 +26,7 @@ set global.game_pause = false
 
 set global.game_pause = true
 :An unknown feeling comes within the gem.
-
+:An unexplainable warmth and strong light when held comes from the gem.
 ???: This gem.. it feels warm.
 ???: Like a distant memory.
 set global.game_pause = false
@@ -54,4 +54,13 @@ set global.game_pause = false
 ~ dungeonenter
 
 set global.game_pause = true
-: The order lies in the shadows of your past
+: The order lies in the shadows of your tears.
+set global.game_pause = false
+
+=> END
+
+~ read
+set global.game_pause = true
+:Turn the torch upside down
+set global.game_pause = false
+=> END

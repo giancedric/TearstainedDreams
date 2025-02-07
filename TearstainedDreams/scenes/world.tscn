@@ -950,7 +950,7 @@ offset_bottom = 186.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("16_yaq6k")
 theme_override_font_sizes/font_size = 16
-text = "Press \"Tab\" to reveal the path of the tear"
+text = "Press \"Tab\" to reveal to hold the tear"
 
 [node name="path" type="TileMapLayer" parent="."]
 visible = false
