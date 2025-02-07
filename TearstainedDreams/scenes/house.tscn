@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://54jv2ct3kcmk"]
+[gd_scene load_steps=66 format=3 uid="uid://54jv2ct3kcmk"]
 
 [ext_resource type="Script" path="res://scripts/house.gd" id="1_gcyrq"]
 [ext_resource type="Texture2D" uid="uid://blb1c7pv33md7" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Roof_Tilset.png" id="1_jjvvi"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://7eqqsaqauerr" path="res://scenes/player.tscn" id="10_aiqry"]
 [ext_resource type="Texture2D" uid="uid://bunuk6pn8p02i" path="res://art/characters/Enemies/Golem/leftidle.png" id="12_3a8to"]
 [ext_resource type="Texture2D" uid="uid://yddfk4nsb45f" path="res://art/characters/Enemies/Golem/fullleft.png" id="12_nuebc"]
-[ext_resource type="Texture2D" uid="uid://diuq2bllk7xv8" path="res://art/Gews_Light_blue.png" id="14_di3w5"]
+[ext_resource type="Texture2D" uid="uid://dbyc0qf040ref" path="res://art/Dungeons/spritesheet_extra.png" id="14_37koe"]
 [ext_resource type="FontFile" uid="uid://b5gi4bu0p1hmg" path="res://art/fonts/NES.tres" id="15_h8xqa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3o1dv"]
@@ -1716,30 +1716,56 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8oemo"]
-atlas = ExtResource("14_di3w5")
-region = Rect2(0, 0, 3072, 2048)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dv6nt"]
+atlas = ExtResource("14_37koe")
+region = Rect2(0, 64, 36, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6iy3i"]
-atlas = ExtResource("14_di3w5")
-region = Rect2(0, 2048, 3072, 2048)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ed35e"]
+atlas = ExtResource("14_37koe")
+region = Rect2(36, 64, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykq4c"]
+atlas = ExtResource("14_37koe")
+region = Rect2(36, 96, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqo8k"]
+atlas = ExtResource("14_37koe")
+region = Rect2(0, 96, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tune2"]
+atlas = ExtResource("14_37koe")
+region = Rect2(0, 64, 36, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m2mst"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8oemo")
+"texture": SubResource("AtlasTexture_dv6nt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6iy3i")
+"texture": SubResource("AtlasTexture_ed35e")
 }],
-"loop": true,
-"name": &"default",
+"loop": false,
+"name": &"pop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykq4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqo8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tune2")
+}],
+"loop": false,
+"name": &"spawn",
 "speed": 2.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xwtc"]
-radius = 1487.3
+radius = 26.8309
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhj23"]
 size = Vector2(33, 20)
@@ -1805,15 +1831,17 @@ animation = &"idle"
 
 [node name="tear" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(286, 122)
-scale = Vector2(0.0141195, 0.0151367)
+position = Vector2(280, 123)
+scale = Vector2(1.07336, 1.12743)
 sprite_frames = SubResource("SpriteFrames_m2mst")
-frame_progress = 0.00849632
+animation = &"pop"
+frame = 1
+frame_progress = 1.0
 
 [node name="collectarea" type="Area2D" parent="tear"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tear/collectarea"]
-position = Vector2(-708.24, -330.323)
+position = Vector2(-3.72661, -6.20883)
 shape = SubResource("CircleShape2D_0xwtc")
 
 [node name="interacttext" type="Label" parent="."]

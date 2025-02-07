@@ -1,5 +1,7 @@
 extends Node2D
 
+var enter = false
+
 var player_in_range = false
 var lever = false
 var lever_on = false
@@ -17,6 +19,7 @@ var torch2_turned = false
 func _ready() -> void:
 	global.current_scene = "dungeon"
 	global.game_pause = false
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,6 +49,17 @@ func _process(delta: float) -> void:
 		$"!4".visible = false
 	if torch_turned and torch2_turned and lever_on == false:
 		$lever.visible = true
+	if $lever.visible == false and $leveron.visible == false:
+		$lever/levercollision.collision_layer = 0
+		$lever/levercollision.collision_mask = 0
+		$leveron/leveroncollision.collision_mask = 0
+		$leveron/leveroncollision.collision_layer = 0
+	else:
+		$lever/levercollision.collision_layer = 1
+		$lever/levercollision.collision_mask = 1
+		$leveron/leveroncollision.collision_mask = 1
+		$leveron/leveroncollision.collision_layer = 1
+		
 
 func _on_leverflip_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
@@ -63,6 +77,11 @@ func on_lever():
 		lever_on = true
 		if lever_on:
 			$lever.visible = false
+			$gatecollision.collision_layer = 0
+			$gatecollision.collision_mask = 0
+			$gate.visible = false
+			$gate2.visible = false
+			
 
 
 func _on_message_body_entered(body: Node2D) -> void:
@@ -78,6 +97,8 @@ func read_runes():
 	if Input.is_action_just_pressed("interact"):
 		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "read")
 		message_read = true
+		enter = true
+		
 
 
 func _on_torchturn_body_entered(body: Node2D) -> void:
@@ -110,4 +131,10 @@ func turn_torch2():
 		$torchup2.visible = false
 		$torchdown2.visible = true
 		torch2_turned = true
-		
+
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.has_method("player"):
+		if enter == false:
+			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "dungeonenter")

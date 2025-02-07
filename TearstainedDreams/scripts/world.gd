@@ -1,5 +1,7 @@
 extends Node2D
 
+var dialogue_shown = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,8 +14,13 @@ func _process(delta: float) -> void:
 	if global.housetear_collected==true:
 		if Input.is_action_pressed("path"):
 			$path.visible = true
+			if dialogue_shown == false:
+				DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "tearexplainfurther")
+				dialogue_shown = true
 		elif Input.is_action_just_released("path"):
 			$path.visible = false
+	
+		
 
 func _on_houseentrance_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):

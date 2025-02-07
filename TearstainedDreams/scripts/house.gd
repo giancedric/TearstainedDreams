@@ -58,7 +58,7 @@ func _on_house_cutscene_body_exited(body: Node2D) -> void:
 		await $entity.animation_finished
 		$entity.visible = false
 		if $entity.visible == false:
-			$tear.play("default")
+			$tear.play("spawn")
 			$tear.visible = true
 			
 
@@ -82,6 +82,8 @@ func _on_collectarea_body_exited(body: Node2D) -> void:
 func collect_tear():
 	if Input.is_action_just_pressed("interact"):
 		global.housetear_collected = true
+		$tear.play("pop")
+		await $tear.animation_finished
 		$tear.visible = false
 
 
@@ -91,11 +93,11 @@ func _on_tearbarrier_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		if global.housetear_collected == false:
 			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "tearbarrier")
-			var direction = (body.global_position - global_position).normalized()
 			body.global_position.y -= 25
 
 
 func dialogue():
 	if global.housetear_collected == true and housedialogue_shown == false:
-		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "tearexplain")
 		housedialogue_shown = true
+		await $tear.visibility_changed
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "tearexplain")

@@ -26,9 +26,17 @@ set global.game_pause = false
 
 set global.game_pause = true
 :An unknown feeling comes within the gem.
-:An unexplainable warmth and strong light when held comes from the gem.
+:A comforting warmth radiates from the gem, accompanied by a soft, luminous glow when held.
 ???: This gem.. it feels warm.
 ???: Like a distant memory.
+set global.game_pause = false
+
+=> END
+
+~ tearexplainfurther
+set global.game_pause = true
+: A sudden path appears before you when you have the gem in you hand.
+: Instinct tells you to follow it.
 set global.game_pause = false
 
 => END
@@ -54,7 +62,9 @@ set global.game_pause = false
 ~ dungeonenter
 
 set global.game_pause = true
-: The order lies in the shadows of your tears.
+: The door hums faintly.
+: A whisper echos through your head.
+: Through your tears, clarity flows. Hold it close to see the truth.
 set global.game_pause = false
 
 => END

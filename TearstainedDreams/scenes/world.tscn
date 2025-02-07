@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://6ptsc1l6rwr8"]
+[gd_scene load_steps=36 format=4 uid="uid://6ptsc1l6rwr8"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ocomo"]
 [ext_resource type="Texture2D" uid="uid://x13ojgarfj5a" path="res://art/tilesets/free.png" id="1_tdwty"]
@@ -916,7 +916,7 @@ layer_1/y_sort_enabled = true
 layer_1/tile_data = PackedInt32Array(16, 4, 1, 131094, 4, 2, 131095, 65540, 2, 131096, 65540, 2, 131097, 65540, 2, 131098, 65540, 2, 65562, 65540, 1, 65563, 65540, 1, 65564, 65540, 1, 65565, 65540, 1, 65566, 65540, 1, 65567, 65540, 1, 17, 65540, 1, 31, 65540, 1, 30, 65540, 1, 29, 65540, 1, 28, 65540, 1, 27, 65540, 1, 26, 65540, 1, 25, 65540, 1, 24, 65540, 1, 23, 65540, 1, 22, 65540, 1, 21, 65540, 1, 20, 65540, 1, 19, 65540, 1, 18, 65540, 1, 65559, 65540, 1, 65560, 65540, 1, 65561, 65540, 1, 131099, 65540, 2, 131100, 65540, 2, 131101, 65540, 2, 131102, 65540, 2, 131103, 65540, 2, 65558, 393220, 1, 65557, 65540, 2, 65556, 65540, 2, 65555, 65540, 2, 65554, 65540, 2, 65553, 65540, 2, 65552, 4, 2)
 layer_2/name = "House"
 layer_2/y_sort_enabled = true
-layer_2/tile_data = PackedInt32Array(65539, 262144, 3)
+layer_2/tile_data = PackedInt32Array(65539, 262144, 3, 720917, 65540, 1)
 layer_3/name = "trees"
 layer_3/y_sort_enabled = true
 layer_3/tile_data = PackedInt32Array(196608, 65541, 0, 262145, 65541, 3, 262165, 65541, 0, 1048578, 65541, 0, 1245200, 65541, 0, 1245211, 65541, 0, 393244, 65541, 0, 327693, 65541, 0, 393230, 5, 3, 1114122, 65541, 0, 65546, 65541, 0, 131082, 65541, 2, 131083, 5, 3, 1376259, 65541, 0, 1310743, 65541, 0, 458775, 65541, 0, 131099, 65541, 0, 196638, 65541, 0, 1376286, 65541, 0, 131088, 65541, 0, 1114118, 196613, 0, 1245184, 196613, 0, 13, 196613, 0, 131079, 196613, 0, 458769, 196613, 0, 196632, 196613, 0, 1114132, 196613, 0, 1376269, 196613, 0, 983069, 196613, 0, -65519, 5, 0, 17, 65541, 3, 786433, 5, 0, 589855, 5, 0, 262147, 11, 0, 393218, 11, 0, 524291, 11, 1, 720898, 11, 1, 655362, 11, 1, 786434, 65547, 2, 786436, 131083, 3, 786441, 131083, 3, 720902, 131083, 3, 720903, 131083, 3, 720908, 131083, 3, 786446, 131083, 3, 720912, 196619, 3, 786449, 196619, 3, 720916, 196619, 3, 720915, 196619, 3, 393223, 5, 3, 589829, 5, 3, 27, 65541, 3, 65561, 65541, 3, 393220, 262149, 2, 851988, 65541, 3, 655376, 65541, 3, 851979, 65541, 3, 655366, 65541, 3, 851970, 65541, 3, 524289, 65541, 3, 327684, 65541, 3, 262149, 5, 3, 851973, 5, 3, 655371, 5, 3, 851984, 5, 3, 655380, 5, 3, 524294, 458757, 3, 458760, 327685, 4)
@@ -924,9 +924,10 @@ layer_3/tile_data = PackedInt32Array(196608, 65541, 0, 262145, 65541, 3, 262165,
 [node name="collisions" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
-polygon = PackedVector2Array(0, 0, 512, 0, 513, 158, 560, 158, 558, 241, 511, 244, 512, 384, 0, 384, 0, -3, -29, 401, 554, 400, 535, 259, 607, 210, 575, 102, 541, 115, 542, 4, 505, -54, 70, -38, 7, -26, 0, -3)
+polygon = PackedVector2Array(0, 0, 257, 1, 257, 30, 353, 32, 353, 48, 512.296, 46.7054, 513, 158, 560, 158, 558, 241, 511, 244, 512, 384, 0, 384, 0, -3, -29, 401, 554, 400, 535, 259, 607, 210, 575, 102, 541, 115, 542, 4, 505, -54, 70, -38, 7, -26, 0, -3)
 
 [node name="player" parent="." instance=ExtResource("11_wdidt")]
+z_index = 3
 position = Vector2(44, 72)
 
 [node name="houseentrance" type="Area2D" parent="."]
@@ -943,6 +944,7 @@ shape = SubResource("RectangleShape2D_f8deh")
 
 [node name="Intructions" type="Label" parent="."]
 visible = false
+z_index = 2
 offset_left = 79.0
 offset_top = 173.0
 offset_right = 331.0
@@ -950,11 +952,12 @@ offset_bottom = 186.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("16_yaq6k")
 theme_override_font_sizes/font_size = 16
-text = "Press \"Tab\" to reveal to hold the tear"
+text = "Press \"Tab\" to hold the tear-shaped gem"
 
 [node name="path" type="TileMapLayer" parent="."]
 visible = false
-tile_map_data = PackedByteArray(0, 0, 21, 0, 12, 0, 0, 0, 0, 0, 13, 0, 0, 0, 27, 0, 11, 0, 0, 0, 1, 0, 13, 0, 0, 0, 31, 0, 13, 0, 0, 0, 0, 0, 13, 0, 0, 0)
+z_index = 1
+tile_map_data = PackedByteArray("AAAVAAwAAAAAAA0AAAAbAAsAAAABAA0AAAAfAA0AAAAAAA0AAAAQAAsAAAAAAA0AAAALAAwAAAAAAA0AAAAGAAsAAAAAAA0AAAAFAAwAAAABAA0AAAA=")
 tile_set = SubResource("TileSet_2ud0d")
 
 [node name="foresttransition" type="Area2D" parent="."]
