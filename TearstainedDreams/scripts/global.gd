@@ -13,6 +13,7 @@ var player_start_posx = 13
 var player_start_posy = 33
 
 var game_first_loadin = true
+var offered = false
 
 
 func finish_changescenes():

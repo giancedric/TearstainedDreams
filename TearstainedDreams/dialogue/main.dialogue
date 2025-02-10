@@ -15,7 +15,7 @@ set global.game_pause = false
 => END
 
 ~ tearbarrier
-: I shouldn't leave that gem behind.
+???: I shouldn't leave that gem behind.
 => END
 
 ~ houseentry
@@ -25,18 +25,16 @@ set global.game_pause = false
 ~ tearexplain
 
 set global.game_pause = true
-:An unknown feeling comes within the gem.
-:A comforting warmth radiates from the gem, accompanied by a soft, luminous glow when held.
+: A comforting warmth radiates from the gem, accompanied by a soft, luminous glow when held.
 ???: This gem.. it feels warm.
-???: Like a distant memory.
 set global.game_pause = false
 
 => END
 
 ~ tearexplainfurther
 set global.game_pause = true
-: A sudden path appears before you when you have the gem in you hand.
-: Instinct tells you to follow it.
+: A path suddenly appears before you when you have the gem in your hand.
+: Follow it.
 set global.game_pause = false
 
 => END
@@ -44,7 +42,8 @@ set global.game_pause = false
 ~ forestenter
 
 set global.game_pause = true
-???: Ugh.. My head hurts
+???: ...
+???: My head hurts
 set global.game_pause = false
 
 => END
@@ -71,6 +70,34 @@ set global.game_pause = false
 
 ~ read
 set global.game_pause = true
-:Turn the torch upside down
+: Raise the handles, lower the flames.
 set global.game_pause = false
+=> END
+
+~ gemglow
+
+set global.game_pause = true
+: The gem in your hand glows brighter as you get closer to the statue.
+set global.game_pause = false
+
+=> END
+
+~ gemglow2
+
+set global.game_pause = true
+: The gem glows brightest you've seen it, now closest to the statue.
+: The gem hums softly, almost asking to get closer to the statue.
+set global.game_pause = false
+
+=> END
+
+~ gemoffer
+set global.game_pause = true
+: Offer the gem to the statue?
+- Yes
+	set global.offered = true
+	set global.game_pause = false
+- No => END 
+set global.game_pause = false
+
 => END

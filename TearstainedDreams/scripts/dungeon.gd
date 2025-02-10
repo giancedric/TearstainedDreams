@@ -15,6 +15,10 @@ var torch2_range = false
 var torch_turned = false
 var torch2_turned = false
 
+var gemglow = false
+var gemglow2 = false
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	global.current_scene = "dungeon"
@@ -59,7 +63,9 @@ func _process(delta: float) -> void:
 		$lever/levercollision.collision_mask = 1
 		$leveron/leveroncollision.collision_mask = 1
 		$leveron/leveroncollision.collision_layer = 1
-		
+	
+	if global.offered:
+		get_tree().change_scene_to_file("res://scenes/world.tscn")
 
 func _on_leverflip_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
@@ -138,3 +144,22 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		if enter == false:
 			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "dungeonenter")
+
+
+func _on_gemglow_body_entered(body: Node2D) -> void:
+	if body.has_method("player"):
+		if gemglow == false:
+			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "gemglow")
+			gemglow = true
+
+func _on_gemglow_2_body_entered(body: Node2D) -> void:
+	if body.has_method("player"):
+		if gemglow2 == false:
+			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "gemglow2")
+			gemglow2 = true
+
+
+func _on_statuegem_body_entered(body: Node2D) -> void:
+	if body.has_method("player"):
+		if gemglow2 == true:
+			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "gemoffer")
