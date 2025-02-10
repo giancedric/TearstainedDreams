@@ -97,7 +97,9 @@ set global.game_pause = true
 - Yes
 	set global.offered = true
 	set global.game_pause = false
-- No => END 
-set global.game_pause = false
+- No
+	set global.game_pause = false  
+	=> END 
+
 
 => END

@@ -37,7 +37,6 @@ scale = Vector2(1.425, 1.425)
 
 [node name="puzzle2" type="TileMapLayer" parent="."]
 visible = false
-y_sort_enabled = true
 position = Vector2(8, 1)
 tile_map_data = PackedByteArray("AAAWAB8ACAAQAAYAAAAWACAACAAQAAcAAAAWACEACAAQAAgAAAAWACIACAAQAAkAAAAXAB8ACAARAAYAAAAXACAACAARAAcAAAAXACEACAARAAgAAAAXACIACAARAAkAAAA=")
 tile_set = ExtResource("1_6iu2c")
@@ -62,7 +61,6 @@ tile_set = ExtResource("1_6iu2c")
 
 [node name="torchdown" type="TileMapLayer" parent="."]
 visible = false
-z_index = 1
 position = Vector2(962, 907)
 rotation = 3.14159
 tile_map_data = PackedByteArray("AAAkABwACQALAAUAAAA=")
@@ -70,7 +68,6 @@ tile_set = ExtResource("1_6iu2c")
 
 [node name="torchdown2" type="TileMapLayer" parent="."]
 visible = false
-z_index = 1
 position = Vector2(1169, 907)
 rotation = 3.14159
 tile_map_data = PackedByteArray("AAAkABwACQALAAUAAAA=")
@@ -167,6 +164,7 @@ tile_set = ExtResource("1_6iu2c")
 
 [node name="leverflip" type="Area2D" parent="lever"]
 visible = false
+z_index = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lever/leverflip"]
 visible = false
