@@ -1,9 +1,20 @@
-[gd_scene load_steps=12 format=4 uid="uid://bcciynwesivgu"]
+[gd_scene load_steps=25 format=4 uid="uid://bcciynwesivgu"]
 
 [ext_resource type="TileSet" uid="uid://dca7xle24d2g2" path="res://art/dungeon.tres" id="1_6iu2c"]
 [ext_resource type="Script" path="res://scripts/dungeon.gd" id="1_hrirg"]
 [ext_resource type="PackedScene" uid="uid://7eqqsaqauerr" path="res://scenes/player.tscn" id="3_igjdj"]
 [ext_resource type="FontFile" uid="uid://b5gi4bu0p1hmg" path="res://art/fonts/NES.tres" id="4_s082e"]
+[ext_resource type="Texture2D" uid="uid://dwwriua0v8tw3" path="res://art/Water_drop/3.png" id="5_pa71k"]
+[ext_resource type="Texture2D" uid="uid://iuxdy0mchcl" path="res://art/Water_drop/4.png" id="6_u5wx0"]
+[ext_resource type="Texture2D" uid="uid://c7kr33oxvevwx" path="res://art/Water_drop/5.png" id="7_vt32k"]
+[ext_resource type="Texture2D" uid="uid://cuqe7tcp043go" path="res://art/Water_drop/6.png" id="8_xpb1e"]
+[ext_resource type="Texture2D" uid="uid://gvkg4pex338y" path="res://art/Water_drop/7.png" id="9_75ddn"]
+[ext_resource type="Texture2D" uid="uid://bueum4gq7tc6" path="res://art/Water_drop/8.png" id="10_0oeqx"]
+[ext_resource type="Texture2D" uid="uid://blly4n2h1i6dd" path="res://art/Water_drop/9.png" id="11_emchy"]
+[ext_resource type="Texture2D" uid="uid://b0jiwa6mo321b" path="res://art/Water_drop/10.png" id="12_vd6s7"]
+[ext_resource type="Texture2D" uid="uid://cfhokavt6pem7" path="res://art/Water_drop/11.png" id="13_qvv18"]
+[ext_resource type="Texture2D" uid="uid://cqqntmd8mniwb" path="res://art/Water_drop/12.png" id="14_8iijt"]
+[ext_resource type="Texture2D" uid="uid://nvff6w2724sg" path="res://art/Water_drop/13.png" id="15_1y8p0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2rmi"]
 size = Vector2(46.5, 62)
@@ -26,6 +37,70 @@ size = Vector2(69, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_add2c"]
 size = Vector2(80, 36.875)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p2h15"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pa71k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u5wx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vt32k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xpb1e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pa71k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u5wx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vt32k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xpb1e")
+}],
+"loop": false,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2bce6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_xpb1e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_75ddn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0oeqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_emchy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_vd6s7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_qvv18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_8iijt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_1y8p0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="dungeon" type="Node2D"]
 y_sort_enabled = true
@@ -238,6 +313,22 @@ shape = SubResource("RectangleShape2D_add2c")
 position = Vector2(479, 321)
 shape = SubResource("RectangleShape2D_add2c")
 
+[node name="tear" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(480.561, 299.158)
+sprite_frames = SubResource("SpriteFrames_p2h15")
+frame = 7
+frame_progress = 1.0
+
+[node name="tear2" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(480.526, 311.112)
+sprite_frames = SubResource("SpriteFrames_2bce6")
+frame = 7
+frame_progress = 1.0
+
 [connection signal="body_entered" from="puzzle2/message" to="." method="_on_message_body_entered"]
 [connection signal="body_exited" from="puzzle2/message" to="." method="_on_message_body_exited"]
 [connection signal="body_entered" from="lever/leverflip" to="." method="_on_leverflip_body_entered"]
@@ -250,3 +341,5 @@ shape = SubResource("RectangleShape2D_add2c")
 [connection signal="body_entered" from="gemglow" to="." method="_on_gemglow_body_entered"]
 [connection signal="body_entered" from="gemglow2" to="." method="_on_gemglow_2_body_entered"]
 [connection signal="body_entered" from="statuegem" to="." method="_on_statuegem_body_entered"]
+[connection signal="animation_finished" from="tear" to="." method="_on_tear_animation_finished"]
+[connection signal="animation_finished" from="tear2" to="." method="_on_tear_2_animation_finished"]

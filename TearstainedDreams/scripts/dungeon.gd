@@ -18,6 +18,11 @@ var torch2_turned = false
 var gemglow = false
 var gemglow2 = false
 
+var anim_played = false
+var gem_offered = false
+var dialogue_shown = false
+var anim_finished = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -63,10 +68,10 @@ func _process(delta: float) -> void:
 		$lever/levercollision.collision_mask = 1
 		$leveron/leveroncollision.collision_mask = 1
 		$leveron/leveroncollision.collision_layer = 1
-	
-	if global.offered:
-		get_tree().change_scene_to_file("res://scenes/world.tscn")
-
+	if global.offered and anim_played == false:
+		$tear.visible = true
+		$tear.play()
+		anim_played = true
 func _on_leverflip_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_range = true
@@ -161,5 +166,19 @@ func _on_gemglow_2_body_entered(body: Node2D) -> void:
 
 func _on_statuegem_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
-		if gemglow2 == true:
+		if gemglow2 == true and gem_offered == false:
 			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "gemoffer")
+			gem_offered = true
+	
+func _on_tear_animation_finished() -> void:
+	$tear.visible = false
+	$tear2.visible = true
+	$tear2.play()
+
+func _on_tear_2_animation_finished() -> void:
+	$tear2.visible = false
+	if not dialogue_shown:
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "gemoffered")
+		dialogue_shown = true
+
+	

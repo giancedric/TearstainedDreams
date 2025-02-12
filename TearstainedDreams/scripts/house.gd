@@ -82,8 +82,6 @@ func _on_collectarea_body_exited(body: Node2D) -> void:
 func collect_tear():
 	if Input.is_action_just_pressed("interact"):
 		global.housetear_collected = true
-		$tear.play("pop")
-		await $tear.animation_finished
 		$tear.visible = false
 
 
@@ -101,3 +99,7 @@ func dialogue():
 		housedialogue_shown = true
 		await $tear.visibility_changed
 		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "tearexplain")
+
+
+func _on_tear_animation_finished() -> void:
+	$tear.play("idle")
