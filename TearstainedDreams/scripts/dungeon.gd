@@ -22,6 +22,7 @@ var anim_played = false
 var gem_offered = false
 var dialogue_shown = false
 var anim_finished = false
+var tear2 = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -72,6 +73,12 @@ func _process(delta: float) -> void:
 		$tear.visible = true
 		$tear.play()
 		anim_played = true
+	if not dialogue_shown and tear2 and $tear2.visible:
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "gemoffered")
+		dialogue_shown = true
+		tear2 = true
+	if global.transition_scene == true:
+		$ColorRect/AnimationPlayer.play("fadein")
 func _on_leverflip_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_range = true
@@ -177,8 +184,9 @@ func _on_tear_animation_finished() -> void:
 
 func _on_tear_2_animation_finished() -> void:
 	$tear2.visible = false
-	if not dialogue_shown:
-		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "gemoffered")
-		dialogue_shown = true
-
+	tear2 = true
 	
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	get_tree().change_scene_to_file("res://scenes/dream.tscn")

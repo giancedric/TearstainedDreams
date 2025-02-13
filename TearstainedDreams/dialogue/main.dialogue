@@ -85,7 +85,6 @@ set global.game_pause = false
 ~ gemglow2
 
 set global.game_pause = true
-: The droplet glows brightest you've seen it, now closest to the statue.
 : The droplet hums softly, almost asking to get closer to the statue.
 set global.game_pause = false
 
@@ -106,4 +105,5 @@ set global.game_pause = true
 You try to set down the soldified droplet at the statue's feet, but it rapidly floats in front of the statue. 
 The—once solid—water drop becomes liquid right before your eyes, dropping to the base of the statue.
 set global.game_pause = false
+set global.transition_scene = true
 => END

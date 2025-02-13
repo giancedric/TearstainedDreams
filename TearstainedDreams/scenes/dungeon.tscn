@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bcciynwesivgu"]
+[gd_scene load_steps=28 format=4 uid="uid://bcciynwesivgu"]
 
 [ext_resource type="TileSet" uid="uid://dca7xle24d2g2" path="res://art/dungeon.tres" id="1_6iu2c"]
 [ext_resource type="Script" path="res://scripts/dungeon.gd" id="1_hrirg"]
@@ -70,7 +70,7 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2bce6"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_s58w3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -102,11 +102,48 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_8ay17"]
+resource_name = "fadein"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nsg27"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mkag0"]
+_data = {
+"RESET": SubResource("Animation_nsg27"),
+"fadein": SubResource("Animation_8ay17")
+}
+
 [node name="dungeon" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_hrirg")
 
 [node name="player" parent="." instance=ExtResource("3_igjdj")]
+z_as_relative = false
 position = Vector2(470, 575)
 scale = Vector2(1.425, 1.425)
 
@@ -324,10 +361,23 @@ frame_progress = 1.0
 [node name="tear2" type="AnimatedSprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(480.526, 311.112)
-sprite_frames = SubResource("SpriteFrames_2bce6")
+y_sort_enabled = true
+position = Vector2(480.44, 311.572)
+sprite_frames = SubResource("SpriteFrames_s58w3")
 frame = 7
 frame_progress = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 2
+offset_right = 1252.0
+offset_bottom = 734.0
+color = Color(1, 1, 1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+libraries = {
+"": SubResource("AnimationLibrary_mkag0")
+}
+movie_quit_on_finish = true
 
 [connection signal="body_entered" from="puzzle2/message" to="." method="_on_message_body_entered"]
 [connection signal="body_exited" from="puzzle2/message" to="." method="_on_message_body_exited"]
@@ -343,3 +393,4 @@ frame_progress = 1.0
 [connection signal="body_entered" from="statuegem" to="." method="_on_statuegem_body_entered"]
 [connection signal="animation_finished" from="tear" to="." method="_on_tear_animation_finished"]
 [connection signal="animation_finished" from="tear2" to="." method="_on_tear_2_animation_finished"]
+[connection signal="animation_finished" from="ColorRect/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
