@@ -96,6 +96,7 @@ set global.game_pause = true
 - Yes
 	set global.offered = true
 	set global.game_pause = false
+	set global.current_scence = "1st"
 - No
 	set global.game_pause = false  
 	=> END 
@@ -107,3 +108,102 @@ The—once solid—water drop becomes liquid right before your eyes, dropping to
 set global.game_pause = false
 set global.transition_scene = true
 => END
+
+~ firstregret
+
+A strange voice surrounds your head
+Was it worth it?
+- ...
+	How many times did you say it was the last time?
+	- Who are you?
+		Can you smell it? The smell of familiarity.
+		Of what you ran to every time you were feeling...
+		Confused
+		Hurt
+		Happy
+		It didn't matter
+		You always ran to it.
+		- I don't remember.
+			This is who you are, Asher. You sought comfort in something that hurt you...
+			and others.
+			The smoke around you, this is what you lived off of.
+			Years on end, no matter who told you to stop...
+			You never did.
+			So tell me, Asher, was the "it's just one puff" worth it?
+			- ...
+				Now, look at you, still searching for answers you already know.
+				...
+				You can't undo this.
+				=> END
+			- I... don't know.
+				Now, look at you, still searching for answers you already know.
+				...
+				You can't undo this.
+				=> END
+	- Last what?
+		Can you smell it? The smell of familiarity.
+		Of what you ran to every time you were feeling...
+		Confused
+		Hurt
+		Happy
+		It didn't matter
+		You always ran to it.
+		- I don't remember.
+			This is who you are, Asher. You sought comfort in something that hurt you...
+			and others.
+			The smoke around you, this is what you lived off of.
+			Years on end, no matter who told you to stop...
+			You never did.
+			So tell me, Asher, was the "it's just one puff" worth it?
+			- ...
+				Now, look at you, still searching for answers you already know.
+				...
+				You can't undo this.
+				=> END
+- Was what worth it?
+	How many times did you say it was the last time?
+	- Who are you?
+		Can you smell it? The smell of familiarity.
+		Of what you ran to every time you were feeling...
+		Confused
+		Hurt
+		Happy
+		It didn't matter
+		You always ran to it.
+	- Last what???
+		Can you smell it? The smell of familiarity.
+		Of what you ran to every time you were feeling...
+		Confused
+		Hurt
+		Happy
+		It didn't matter
+		You always ran to it.
+		- I don't remember.
+			This is who you are, Asher. You sought comfort in something that hurt you...
+			and others.
+			The smoke around you, this is what you lived off of.
+			Years on end, no matter who told you to stop...
+			You never did.
+			So tell me, Asher, was the "it's just one puff" worth it?
+			- ...
+				Now, look at you, still searching for answers you already know.
+				...
+				You can't undo this.
+				=> END
+		- I don't remember.
+			This is who you are, Asher. You sought comfort in something that hurt you...
+			and others.
+			The smoke around you, this is what you lived off of.
+			Years on end, no matter who told you to stop...
+			You never did.
+			So tell me, Asher, was the "it's just one puff" worth it?
+			- ...
+				Now, look at you, still searching for answers you already know.
+				...
+				You can't undo this.
+				=> END
+			- I... don't know.
+				Now, look at you, still searching for answers you already know.
+				...
+				You can't undo this.
+				=> END
