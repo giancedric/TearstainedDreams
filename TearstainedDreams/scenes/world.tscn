@@ -924,7 +924,7 @@ layer_3/tile_data = PackedInt32Array(196608, 65541, 0, 262145, 65541, 3, 262165,
 [node name="collisions" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
-polygon = PackedVector2Array(0, 0, 257, 1, 257, 30, 353, 32, 353, 48, 512.296, 46.7054, 513, 158, 560, 158, 558, 241, 511, 244, 512, 384, 0, 384, 0, -3, -29, 401, 554, 400, 535, 259, 607, 210, 575, 102, 541, 115, 542, 4, 505, -54, 70, -38, 7, -26, 0, -3)
+polygon = PackedVector2Array(0, 0, 257, 1, 257, 30, 353, 32, 353, 48, 512.296, 46.7054, 513, 158, 560, 158, 558, 241, 511, 244, 489, 243, 1, 249, 0, -3, -29, 401, 554, 400, 535, 259, 607, 210, 575, 102, 541, 115, 542, 4, 505, -54, 70, -38, 7, -26, 0, -3)
 
 [node name="player" parent="." instance=ExtResource("11_wdidt")]
 z_index = 3
