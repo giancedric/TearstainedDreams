@@ -3,15 +3,23 @@ extends Node2D
 var anim_finished = false
 var spawned = false
 
+var fade_in_progress = false
+var fade_speed = 1.0  # Adjust speed (higher = faster fade)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$VBoxContainer/enemy.modulate.a = 0  # Start fully transparent
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if anim_finished:
 		$spawn.play()
+	if fade_in_progress:
+		$VBoxContainer/enemy.modulate.a = min($VBoxContainer/enemy.modulate.a + fade_speed * delta, 1.0)
+		if $VBoxContainer/enemy.modulate.a >= 1.0:
+			fade_in_progress = false  # Stop fading when fully visible
+
 	
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -20,4 +28,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func _on_spawn_animation_finished() -> void:
 		$spawn.visible = false
-		$enemy.visible = true
+		$VBoxContainer/enemy.visible = true
+		fade_in_progress = true
+		$VBoxContainer/enemy.play()
