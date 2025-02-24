@@ -207,3 +207,7 @@ Was it worth it?
 				...
 				You can't undo this.
 				=> END
+				
+~ run
+: [[You can't escape me, Asher. | It's only yourself you're trying to run away from.]]
+=> END 

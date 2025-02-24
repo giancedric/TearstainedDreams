@@ -1,0 +1,109 @@
+[gd_resource type="SpriteFrames" load_steps=16 format=3 uid="uid://snhfvb1dkowu"]
+
+[ext_resource type="Texture2D" uid="uid://c36lfgogyfp0d" path="res://art/Enemies/SHADOW Series - The Shadowed Wetlands Boss/Sprite Sheet/idle.png" id="1_f2nqd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bp6t0"]
+atlas = ExtResource("1_f2nqd")
+region = Rect2(0, 0, 272, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kokrq"]
+atlas = ExtResource("1_f2nqd")
+region = Rect2(272, 0, 272, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv766"]
+atlas = ExtResource("1_f2nqd")
+region = Rect2(544, 0, 272, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_467hn"]
+atlas = ExtResource("1_f2nqd")
+region = Rect2(816, 0, 272, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yakeq"]
+atlas = ExtResource("1_f2nqd")
+region = Rect2(1088, 0, 272, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiyur"]
+atlas = ExtResource("1_f2nqd")
+region = Rect2(1360, 0, 272, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rwg5"]
+atlas = ExtResource("1_f2nqd")
+region = Rect2(1632, 0, 272, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kk3c"]
+atlas = ExtResource("1_f2nqd")
+region = Rect2(1904, 0, 272, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uhrd"]
+atlas = ExtResource("1_f2nqd")
+region = Rect2(2176, 0, 272, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7gvi"]
+atlas = ExtResource("1_f2nqd")
+region = Rect2(2448, 0, 272, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te1xd"]
+atlas = ExtResource("1_f2nqd")
+region = Rect2(2720, 0, 272, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxy65"]
+atlas = ExtResource("1_f2nqd")
+region = Rect2(2992, 0, 272, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7obvn"]
+atlas = ExtResource("1_f2nqd")
+region = Rect2(3264, 0, 272, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_daoe0"]
+atlas = ExtResource("1_f2nqd")
+region = Rect2(3536, 0, 272, 112)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bp6t0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kokrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv766")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_467hn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yakeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xiyur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rwg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kk3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uhrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7gvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_te1xd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxy65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7obvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_daoe0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

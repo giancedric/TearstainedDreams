@@ -15,6 +15,9 @@ var player_start_posy = 33
 var game_first_loadin = true
 var offered = false
 
+var current_health = 50
+var max_health = 50
+
 
 func finish_changescenes():
 	if transition_scene == true:

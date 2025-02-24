@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://b6bxsskgtbpve"]
+
+[ext_resource type="Script" path="res://basescripts/BaseEnemy.gd" id="1_52tcr"]
+[ext_resource type="SpriteFrames" uid="uid://qmw14e0s7box" path="res://spriteframes/smokedeath.tres" id="1_ady4i"]
+[ext_resource type="SpriteFrames" uid="uid://snhfvb1dkowu" path="res://spriteframes/enemyidle.tres" id="1_yubqb"]
+
+[resource]
+script = ExtResource("1_52tcr")
+name = "Smoke"
+idle_animation = ExtResource("1_yubqb")
+death_animation = ExtResource("1_ady4i")
+health = 100
+damage = 15

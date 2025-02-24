@@ -1,26 +1,42 @@
 extends Node2D
 
+@export var enemy: Resource = null
+
 var anim_finished = false
 var spawned = false
 
 var fade_in_progress = false
 var fade_speed = 0.5  # Adjust speed (higher = faster fade)
+var fade_in_done = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$VBoxContainer/enemy.modulate.a = 0  # Start fully transparent
+	set_health($Panel/ProgressBar, global.current_health, global.max_health)
+	set_health($VBoxContainer/ProgressBar, enemy.health, enemy.max_health)
+	$VBoxContainer/enemy.sprite_frames = enemy.idle_animation
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if anim_finished:
+	if anim_finished and not spawned:
 		$spawn.play()
+		spawned = true
+		
 	if fade_in_progress:
 		$VBoxContainer/enemy.modulate.a = min($VBoxContainer/enemy.modulate.a + fade_speed * delta, 1.0)
 		if $VBoxContainer/enemy.modulate.a >= 1.0:
 			fade_in_progress = false  # Stop fading when fully visible
+			fade_in_done = true
+	if fade_in_done:
+			$Actions.visible = true
+			$Panel.visible = true
+			$VBoxContainer/ProgressBar.visible = true
 
-	
+func set_health(progress_bar, health, max_health):
+	progress_bar.value = health
+	progress_bar.max_value = max_health
+	progress_bar.get_node("Label").text = "HP: %d/%d" % [health, max_health]
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	anim_finished = true
@@ -31,6 +47,7 @@ func _on_spawn_animation_finished() -> void:
 		$VBoxContainer/enemy.visible = true
 		fade_in_progress = true
 		$VBoxContainer/enemy.play()
+		
 
 
 func _on_attack_pressed() -> void:
@@ -42,4 +59,4 @@ func _on_defend_pressed() -> void:
 
 
 func _on_run_pressed() -> void:
-	print("run pressed")
+	DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "run")
