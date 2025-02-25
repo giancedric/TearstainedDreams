@@ -2,6 +2,7 @@ extends Node2D
 
 @export var enemy: Resource = null
 
+
 var anim_finished = false
 var spawned = false
 
@@ -9,12 +10,15 @@ var fade_in_progress = false
 var fade_speed = 0.5  # Adjust speed (higher = faster fade)
 var fade_in_done = false
 
+var dialogue = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$VBoxContainer/enemy.modulate.a = 0  # Start fully transparent
 	set_health($Panel/ProgressBar, global.current_health, global.max_health)
 	set_health($VBoxContainer/ProgressBar, enemy.health, enemy.max_health)
 	$VBoxContainer/enemy.sprite_frames = enemy.idle_animation
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,10 +32,12 @@ func _process(delta: float) -> void:
 		if $VBoxContainer/enemy.modulate.a >= 1.0:
 			fade_in_progress = false  # Stop fading when fully visible
 			fade_in_done = true
-	if fade_in_done:
+	if fade_in_done and not dialogue:
 			$Actions.visible = true
 			$Panel.visible = true
 			$VBoxContainer/ProgressBar.visible = true
+			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "enterattack")
+			dialogue = true
 
 func set_health(progress_bar, health, max_health):
 	progress_bar.value = health
@@ -46,13 +52,44 @@ func _on_spawn_animation_finished() -> void:
 		$spawn.visible = false
 		$VBoxContainer/enemy.visible = true
 		fade_in_progress = true
-		$VBoxContainer/enemy.play()
+		$VBoxContainer/enemy.play("default")
 		
 
 
-func _on_attack_pressed() -> void:
-	print("attack pressed")
 
+func _on_attack_pressed() -> void:
+	if enemy.health >= 80:
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "attack")
+		enemy.health = max(0, enemy.health - global.damage)
+		set_health($VBoxContainer/ProgressBar, enemy.health, enemy.max_health)
+		$VBoxContainer/enemy.play("damaged")
+		await DialogueManager.dialogue_ended
+		$VBoxContainer/enemy.play("default")
+		enemy_turn()
+	elif enemy.health <= 80:
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "attackphase2")
+		enemy.health = max(0, enemy.health - global.damage)
+		set_health($VBoxContainer/ProgressBar, enemy.health, enemy.max_health)
+		$VBoxContainer/enemy.play("damaged")
+		await DialogueManager.dialogue_ended
+		$VBoxContainer/enemy.play("default")
+		enemy_turn()
+	
+func enemy_turn():
+	if global.current_health >= 60:
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "enemyattack")
+		global.current_health = max(0, global.current_health - enemy.damage)
+		set_health($Panel/ProgressBar, global.current_health, global.max_health)
+		$VBoxContainer/enemy.play("attack")
+		await $VBoxContainer/enemy.animation_finished
+		$VBoxContainer/enemy.play("default")
+	elif global.current_health <= 59:
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "enemyattack2")
+		global.current_health = max(0, global.current_health - enemy.damage)
+		set_health($Panel/ProgressBar, global.current_health, global.max_health)
+		$VBoxContainer/enemy.play("attack")
+		await $VBoxContainer/enemy.animation_finished
+		$VBoxContainer/enemy.play("default")
 
 func _on_defend_pressed() -> void:
 	print("defend pressed")

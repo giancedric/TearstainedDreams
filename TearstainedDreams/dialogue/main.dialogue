@@ -211,3 +211,34 @@ Was it worth it?
 ~ run
 : [[You can't escape me, Asher. | It's only yourself you're trying to run away from.]]
 => END 
+
+~ enterattack
+: The atmosphere around you gets dense, making you almost unable to breathe.
+=> END
+
+~ attack
+: You swing at the strange entity.
+%5 Entity: Every breath you take, I will always be there.
+%5 Entity: You can't fight what's already inside you, Asher.
+=> END
+
+~ attackphase2
+: You swing at the strange entity.
+%3 Entity: Even if you win… your scars remain
+%3 Entity: Do you even remember why you started?
+%4 Entity: Maybe I was your worst mistake. But I was also your comfort.
+=> END
+
+~ enemyattack
+: The entity swings at you, pulling the swirling smoke along with it—its dark tendrils lashing out and striking you as well.
+=> END
+
+~ enemyattack2
+: The entity swings at you, pulling the swirling smoke along with it—its dark tendrils lashing out and striking you as well.
+%5 Entity: You're getting weak, Asher.
+%5 Entity: You can never escape me.
+=> END
+
+~ smokedefeat
+: You can’t erase the past. You can only drown in it.
+=> END

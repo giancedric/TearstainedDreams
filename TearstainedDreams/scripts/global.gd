@@ -15,8 +15,9 @@ var player_start_posy = 33
 var game_first_loadin = true
 var offered = false
 
-var current_health = 50
-var max_health = 50
+var current_health = 100
+var max_health = 100
+var damage = 20
 
 
 func finish_changescenes():

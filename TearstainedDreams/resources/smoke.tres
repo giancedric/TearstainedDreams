@@ -9,5 +9,6 @@ script = ExtResource("1_52tcr")
 name = "Smoke"
 idle_animation = ExtResource("1_yubqb")
 death_animation = ExtResource("1_ady4i")
-health = 100
+health = 150
+max_health = 150
 damage = 15

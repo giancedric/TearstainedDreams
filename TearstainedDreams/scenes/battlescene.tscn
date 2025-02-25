@@ -313,7 +313,7 @@ modulate = Color(1, 1, 1, 0.537255)
 position = Vector2(103, 80)
 scale = Vector2(1.54195, 1.74245)
 sprite_frames = ExtResource("4_8t2pl")
-frame_progress = 0.274142
+animation = &"damaged"
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
 visible = false
