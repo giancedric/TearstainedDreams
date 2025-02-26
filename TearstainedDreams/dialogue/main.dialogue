@@ -230,15 +230,37 @@ Was it worth it?
 => END
 
 ~ enemyattack
-: The entity swings at you, pulling the swirling smoke along with it—its dark tendrils lashing out and striking you as well.
+%5 The entity swings at you, pulling the swirling smoke along with it—its dark tendrils lashing out and striking you as well.
+%5 The smoke writhes, coalescing into a sharp and painful assault.
 => END
 
 ~ enemyattack2
-: The entity swings at you, pulling the swirling smoke along with it—its dark tendrils lashing out and striking you as well.
+%5 The entity swings at you, pulling the swirling smoke along with it—its dark tendrils lashing out and striking you as well.
+%5 The smoke writhes, coalescing into a sharp and painful assault.
+
 %5 Entity: You're getting weak, Asher.
 %5 Entity: You can never escape me.
+=> END
+
+~ enemyattack3
+%5 The entity swings at you, pulling the swirling smoke along with it—its dark tendrils lashing out and striking you as well.
+%5 The smoke writhes, coalescing into a sharp and painful assault.
+
+Entity: This is where you fall.
+Entity: You’ve always given in before.
+Entity: Why pretend you're strong now?
+
 => END
 
 ~ smokedefeat
 : You can’t erase the past. You can only drown in it.
 => END
+
+~ gemdeath
+: A sudden glow in you pockets catches your attention.
+The gem of which you had offered earlier.
+Asking for your attention
+It hums...
+Hold on...
+- Hold
+	=> END

@@ -14,6 +14,7 @@ var dialogue = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(enemy.health, enemy.max_health)
 	$VBoxContainer/enemy.modulate.a = 0  # Start fully transparent
 	set_health($Panel/ProgressBar, global.current_health, global.max_health)
 	set_health($VBoxContainer/ProgressBar, enemy.health, enemy.max_health)
@@ -38,6 +39,8 @@ func _process(delta: float) -> void:
 			$VBoxContainer/ProgressBar.visible = true
 			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "enterattack")
 			dialogue = true
+	if global.current_health == 1:
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "gemdeath")
 
 func set_health(progress_bar, health, max_health):
 	progress_bar.value = health
@@ -76,15 +79,22 @@ func _on_attack_pressed() -> void:
 		enemy_turn()
 	
 func enemy_turn():
-	if global.current_health >= 60:
-		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "enemyattack")
-		global.current_health = max(0, global.current_health - enemy.damage)
+	if global.current_health <= 10:
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "enemyattack3")
+		global.current_health = max(0, global.current_health - 9)
 		set_health($Panel/ProgressBar, global.current_health, global.max_health)
 		$VBoxContainer/enemy.play("attack")
 		await $VBoxContainer/enemy.animation_finished
 		$VBoxContainer/enemy.play("default")
 	elif global.current_health <= 59:
 		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "enemyattack2")
+		global.current_health = max(0, global.current_health - enemy.damage)
+		set_health($Panel/ProgressBar, global.current_health, global.max_health)
+		$VBoxContainer/enemy.play("attack")
+		await $VBoxContainer/enemy.animation_finished
+		$VBoxContainer/enemy.play("default")
+	elif global.current_health >= 60:
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "enemyattack")
 		global.current_health = max(0, global.current_health - enemy.damage)
 		set_health($Panel/ProgressBar, global.current_health, global.max_health)
 		$VBoxContainer/enemy.play("attack")
