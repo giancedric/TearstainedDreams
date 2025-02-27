@@ -253,14 +253,65 @@ Entity: Why pretend you're strong now?
 => END
 
 ~ smokedefeat
-: You can’t erase the past. You can only drown in it.
-=> END
+You hold out the gem towards the entity...
+It's dark aura dissipates...
+It's you..
+You were only fighting... yourself..
+Entity Asher : You can’t erase the past. You can only drown in it.
+Asher: I can't.. I can't change the past, but I can choose what comes next.
+...
+Silence ran through the room.
+Then he smiled.
+You smiled.
+Entity Asher: ...Then show me.
+A faint shimmer ripples through the air, the weight on your chest feels lighter.
+Entity Asher: If you believe that you can change for good, show me.
+The figure begins to fade, breaking apart into small wisps of smoke.
+Before he fully disappeared, he reaches out— offering you something.
+- Take it
+	A fragment of yourself.
+	Of who you were.
+	Of who you are.
+	Asher receives Withered Breath
+	As the last remnants of the entity vanish, the room around you shifts. The darkness recedes, the suffocating air lightens.
+	The battle is over… but the journey isn’t.
+	=> END
+- ...
+	Entity Asher: Well? Are you ready to move forward?
+	- Yes
+		A fragment of yourself.
+		Of who you were.
+		Of who you are.
+		Asher receives Withered Breath
+		As the last remnants of the entity vanish, the room around you shifts. The darkness recedes, the suffocating air lightens.
+		The battle is over… but the journey isn’t.
+		=> END
+	- Take it
+		A fragment of yourself.
+		Of who you were.
+		Of who you are.
+		Asher receives Withered Breath
+		As the last remnants of the entity vanish, the room around you shifts. The darkness recedes, the suffocating air lightens.
+		The battle is over… but the journey isn’t.
+		=> END
 
+~ gemlast
+Asher: This is where it ends...
+Asher: You.. are just a shadow of who I was.
+Asher: I'm not running anymore.
 ~ gemdeath
 : A sudden glow in you pockets catches your attention.
 The gem of which you had offered earlier.
 Asking for your attention
 It hums...
 Hold on...
-- Hold
-	=> END
+You are not alone..
+This weight.. isn't yours to carry forever
+Stand. And face it.
+
+=> END 
+
+~ defend
+%5 Entity: You can't defend yourself against me.
+%5 Entity: Defend? You let it in. You let ME in.
+=> END

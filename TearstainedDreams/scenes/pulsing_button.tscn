@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0mm1uclgl580"]
+
+[ext_resource type="Texture2D" uid="uid://c3o0u4papr8yk" path="res://art/dialogue_box.png" id="1_0nlqx"]
+[ext_resource type="Script" path="res://scenes/pulsing_button.gd" id="2_7ugtn"]
+[ext_resource type="FontFile" uid="uid://b5gi4bu0p1hmg" path="res://art/fonts/NES.tres" id="2_awkkg"]
+
+[sub_resource type="Animation" id="Animation_o3cmg"]
+resource_name = "Pulse"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0598271, 0.133333, 0.333333, 0.5, 0.666667, 0.766667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(32, 32), Vector2(35, 35), Vector2(35, 35), Vector2(32, 32), Vector2(35, 35), Vector2(35, 35), Vector2(32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_etd6n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(35, 35)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hqvw8"]
+_data = {
+"Pulse": SubResource("Animation_o3cmg"),
+"RESET": SubResource("Animation_etd6n")
+}
+
+[node name="PulsingButton" type="TextureRect"]
+anchors_preset = -1
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 37.0
+offset_bottom = 33.0
+texture = ExtResource("1_0nlqx")
+script = ExtResource("2_7ugtn")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 9.0
+offset_right = 53.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.556953, 0.556953, 0.556953, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_awkkg")
+text = "E"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hqvw8")
+}

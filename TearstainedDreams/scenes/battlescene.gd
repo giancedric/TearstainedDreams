@@ -7,10 +7,13 @@ var anim_finished = false
 var spawned = false
 
 var fade_in_progress = false
-var fade_speed = 0.5  # Adjust speed (higher = faster fade)
+var fade_speed = 0.5  
 var fade_in_done = false
 
 var dialogue = false
+var death = false
+var final = true
+var echo = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,7 +34,7 @@ func _process(delta: float) -> void:
 	if fade_in_progress:
 		$VBoxContainer/enemy.modulate.a = min($VBoxContainer/enemy.modulate.a + fade_speed * delta, 1.0)
 		if $VBoxContainer/enemy.modulate.a >= 1.0:
-			fade_in_progress = false  # Stop fading when fully visible
+			fade_in_progress = false 
 			fade_in_done = true
 	if fade_in_done and not dialogue:
 			$Actions.visible = true
@@ -39,8 +42,24 @@ func _process(delta: float) -> void:
 			$VBoxContainer/ProgressBar.visible = true
 			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "enterattack")
 			dialogue = true
-	if global.current_health == 1:
+	if global.current_health == 1 and not death:
 		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "gemdeath")
+		
+		$Actions/HBoxContainer/Attack.disabled = true
+		await DialogueManager.dialogue_ended
+		$Actions/HBoxContainer/Defend.text = "Echoed Tear"
+		
+		echo = true
+		death = true
+		global.current_health = 50
+		set_health($Panel/ProgressBar, global.current_health, global.max_health)
+		
+	if Input.is_action_just_pressed("interact") and final:
+			$PulsingButton.visible = false
+			$VBoxContainer/enemy.play("transform")
+			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "smokedefeat")
+
+		
 
 func set_health(progress_bar, health, max_health):
 	progress_bar.value = health
@@ -79,6 +98,8 @@ func _on_attack_pressed() -> void:
 		enemy_turn()
 	
 func enemy_turn():
+
+		
 	if global.current_health <= 10:
 		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "enemyattack3")
 		global.current_health = max(0, global.current_health - 9)
@@ -100,9 +121,18 @@ func enemy_turn():
 		$VBoxContainer/enemy.play("attack")
 		await $VBoxContainer/enemy.animation_finished
 		$VBoxContainer/enemy.play("default")
+	
 
 func _on_defend_pressed() -> void:
-	print("defend pressed")
+	if $Actions/HBoxContainer/Defend.text == "Echoed Tear" and echo:
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "gemlast")
+		await DialogueManager.dialogue_ended
+		$Actions/HBoxContainer/Defend.disabled = true
+		$PulsingButton.visible = true
+		final = true
+
+	else:
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "defend")
 
 
 func _on_run_pressed() -> void:
