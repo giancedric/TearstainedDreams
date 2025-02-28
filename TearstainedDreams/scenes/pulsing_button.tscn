@@ -43,11 +43,10 @@ _data = {
 }
 
 [node name="PulsingButton" type="TextureRect"]
-anchors_preset = -1
 offset_left = 5.0
 offset_top = 1.0
-offset_right = 37.0
-offset_bottom = 33.0
+offset_right = 40.0
+offset_bottom = 36.0
 texture = ExtResource("1_0nlqx")
 script = ExtResource("2_7ugtn")
 

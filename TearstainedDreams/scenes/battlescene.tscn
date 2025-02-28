@@ -461,7 +461,6 @@ text = "Run
 
 [node name="PulsingButton" parent="." instance=ExtResource("7_wuhi8")]
 visible = false
-anchors_preset = 0
 offset_left = 495.0
 offset_top = 235.0
 offset_right = 530.0

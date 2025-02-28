@@ -44,13 +44,14 @@ func _process(delta: float) -> void:
 			dialogue = true
 	if global.current_health == 1 and not death:
 		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "gemdeath")
+		death = true
 		
 		$Actions/HBoxContainer/Attack.disabled = true
 		await DialogueManager.dialogue_ended
 		$Actions/HBoxContainer/Defend.text = "Echoed Tear"
 		
 		echo = true
-		death = true
+		
 		global.current_health = 50
 		set_health($Panel/ProgressBar, global.current_health, global.max_health)
 		
