@@ -5,7 +5,7 @@
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_jdmbt"]
 frequency = 0.0075
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_i22bw"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b830i"]
 width = 320
 height = 180
 seamless = true
@@ -16,10 +16,10 @@ noise = SubResource("FastNoiseLite_jdmbt")
 shader = ExtResource("1_kqs3k")
 shader_parameter/density = 0.25
 shader_parameter/speed = Vector2(0.02, 0.01)
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_i22bw")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_b830i")
 
 [node name="fog" type="ParallaxBackground"]
-layer = 0
+layer = -1
 follow_viewport_enabled = true
 scroll_ignore_camera_zoom = true
 
@@ -28,6 +28,9 @@ motion_mirroring = Vector2(320, 180)
 
 [node name="ColorRect" type="ColorRect" parent="ParallaxLayer"]
 material = SubResource("ShaderMaterial_b0dtj")
-offset_right = 320.0
-offset_bottom = 180.0
+offset_left = 53.9391
+offset_top = 37.4577
+offset_right = 373.939
+offset_bottom = 217.458
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true

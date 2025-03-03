@@ -89,3 +89,10 @@ limit_left = 0
 limit_top = 0
 limit_right = 639
 limit_bottom = 359
+
+[node name="1stbattle" type="Camera2D" parent="."]
+zoom = Vector2(1.82, 1.82)
+limit_left = 0
+limit_top = 0
+limit_right = 636
+limit_bottom = 357

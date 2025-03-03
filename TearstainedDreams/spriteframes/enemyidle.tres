@@ -1,8 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=30 format=3 uid="uid://snhfvb1dkowu"]
+[gd_resource type="SpriteFrames" load_steps=28 format=3 uid="uid://snhfvb1dkowu"]
 
 [ext_resource type="Texture2D" uid="uid://twfla12n1hg4" path="res://art/Enemies/SHADOW Series - The Shadowed Wetlands Boss/Sprite Sheet/Attack 1.png" id="1_bdpra"]
 [ext_resource type="Texture2D" uid="uid://c36lfgogyfp0d" path="res://art/Enemies/SHADOW Series - The Shadowed Wetlands Boss/Sprite Sheet/idle.png" id="1_f2nqd"]
-[ext_resource type="Texture2D" uid="uid://ckv5kejdbkgc0" path="res://art/characters/mc/Final.png" id="3_rhyet"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8m628"]
 atlas = ExtResource("1_bdpra")
@@ -103,10 +102,6 @@ region = Rect2(3264, 0, 272, 112)
 [sub_resource type="AtlasTexture" id="AtlasTexture_daoe0"]
 atlas = ExtResource("1_f2nqd")
 region = Rect2(3536, 0, 272, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c1v3k"]
-atlas = ExtResource("3_rhyet")
-region = Rect2(0, 0, 64, 64)
 
 [resource]
 animations = [{
@@ -233,10 +228,7 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c1v3k")
-}],
+"frames": [],
 "loop": true,
 "name": &"transform",
 "speed": 5.0

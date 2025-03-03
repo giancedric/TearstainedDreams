@@ -106,3 +106,12 @@ func current_camera():
 		$dungeonentrancecam.enabled = false
 		$dungeoncam.enabled = false
 		$regret1cam.enabled = true
+		$"1stbattle".enabled = false
+	elif global.current_scene == "battle":
+		$forestcam.enabled = false
+		$worldcam.enabled = false
+		$housecam.enabled = false
+		$dungeonentrancecam.enabled = false
+		$dungeoncam.enabled = false
+		$regret1cam.enabled = false
+		$"1stbattle".enabled = true

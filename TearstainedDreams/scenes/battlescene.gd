@@ -15,13 +15,14 @@ var death = false
 var final = true
 var echo = false
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(enemy.health, enemy.max_health)
 	$VBoxContainer/enemy.modulate.a = 0  # Start fully transparent
 	set_health($Panel/ProgressBar, global.current_health, global.max_health)
 	set_health($VBoxContainer/ProgressBar, enemy.health, enemy.max_health)
 	$VBoxContainer/enemy.sprite_frames = enemy.idle_animation
+	global.current_scene = "battle"
 
 
 
@@ -52,13 +53,20 @@ func _process(delta: float) -> void:
 		
 		echo = true
 		
-		global.current_health = 50
+		
 		set_health($Panel/ProgressBar, global.current_health, global.max_health)
 		
 	if Input.is_action_just_pressed("interact") and final:
 			$PulsingButton.visible = false
-			$VBoxContainer/enemy.play("transform")
+			global.current_health = 50
+			$VBoxContainer/enemy.visible = false
+			$VBoxContainer/AnimatedSprite2D.visible = true
 			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "smokedefeat")
+			await DialogueManager.dialogue_ended
+			$fog.layer = -1
+			if $fog.layer == -1:
+				$ColorRect.visible = true
+				$ColorRect/AnimationPlayer.play("new_animation")
 
 		
 
@@ -102,7 +110,7 @@ func enemy_turn():
 
 		
 	if global.current_health <= 10:
-		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "enemyattack3")
+		
 		global.current_health = max(0, global.current_health - 9)
 		set_health($Panel/ProgressBar, global.current_health, global.max_health)
 		$VBoxContainer/enemy.play("attack")
@@ -128,6 +136,7 @@ func _on_defend_pressed() -> void:
 	if $Actions/HBoxContainer/Defend.text == "Echoed Tear" and echo:
 		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "gemlast")
 		await DialogueManager.dialogue_ended
+		
 		$Actions/HBoxContainer/Defend.disabled = true
 		$PulsingButton.visible = true
 		final = true
