@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=4 uid="uid://byxydkjxhaxxw"]
 
-[ext_resource type="Script" path="res://scenes/battlescene.gd" id="1_ufcwt"]
+[ext_resource type="Script" path="res://scripts/battlescene.gd" id="1_ufcwt"]
 [ext_resource type="Resource" uid="uid://b6bxsskgtbpve" path="res://resources/smoke.tres" id="2_6jtuy"]
 [ext_resource type="PackedScene" uid="uid://ly82opnxmyfo" path="res://scenes/fog.tscn" id="2_lk8h3"]
 [ext_resource type="SpriteFrames" uid="uid://c276yjama0i6e" path="res://spriteframes/spawn.tres" id="3_r3qk8"]
@@ -304,33 +304,6 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(1, 1, 1, 1)
 
-[sub_resource type="Animation" id="Animation_1vev2"]
-resource_name = "new_animation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.2, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.690196, 0.690196, 0.690196, 1), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_khpnb"]
 length = 0.001
 tracks/0/type = "value"
@@ -356,6 +329,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.690196, 0.690196, 0.690196, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1vev2"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.690196, 0.690196, 0.690196, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ihe43"]

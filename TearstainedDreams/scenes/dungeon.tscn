@@ -1,7 +1,7 @@
-[gd_scene load_steps=28 format=4 uid="uid://bcciynwesivgu"]
+[gd_scene load_steps=29 format=4 uid="uid://bcciynwesivgu"]
 
 [ext_resource type="TileSet" uid="uid://dca7xle24d2g2" path="res://art/dungeon.tres" id="1_6iu2c"]
-[ext_resource type="Script" uid="uid://d02w2nyv0a8rt" path="res://scripts/dungeon.gd" id="1_hrirg"]
+[ext_resource type="Script" path="res://scripts/dungeon.gd" id="1_hrirg"]
 [ext_resource type="PackedScene" uid="uid://7eqqsaqauerr" path="res://scenes/player.tscn" id="3_igjdj"]
 [ext_resource type="FontFile" uid="uid://b5gi4bu0p1hmg" path="res://art/fonts/NES.tres" id="4_s082e"]
 [ext_resource type="Texture2D" uid="uid://dwwriua0v8tw3" path="res://art/Water_drop/3.png" id="5_pa71k"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cfhokavt6pem7" path="res://art/Water_drop/11.png" id="13_qvv18"]
 [ext_resource type="Texture2D" uid="uid://cqqntmd8mniwb" path="res://art/Water_drop/12.png" id="14_8iijt"]
 [ext_resource type="Texture2D" uid="uid://nvff6w2724sg" path="res://art/Water_drop/13.png" id="15_1y8p0"]
+[ext_resource type="AudioStream" path="res://music/default.ogg" id="16_t6g2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2rmi"]
 size = Vector2(46.5, 62)
@@ -134,8 +135,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mkag0"]
 _data = {
-&"RESET": SubResource("Animation_nsg27"),
-&"fadein": SubResource("Animation_8ay17")
+"RESET": SubResource("Animation_nsg27"),
+"fadein": SubResource("Animation_8ay17")
 }
 
 [node name="dungeon" type="Node2D"]
@@ -378,6 +379,12 @@ libraries = {
 "": SubResource("AnimationLibrary_mkag0")
 }
 movie_quit_on_finish = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_t6g2s")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="puzzle2/message" to="." method="_on_message_body_entered"]
 [connection signal="body_exited" from="puzzle2/message" to="." method="_on_message_body_exited"]

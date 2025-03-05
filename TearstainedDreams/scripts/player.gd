@@ -77,28 +77,45 @@ func play_anim(movement):
 
 func current_camera():
 	if global.current_scene == "house":
-		$housecam.enabled = true
+		$forestcam.enabled = false
 		$worldcam.enabled = false
-		$forestcam.enabled = false
+		$housecam.enabled = true
+		$dungeonentrancecam.enabled = false
+		$dungeoncam.enabled = false
+		$regret1cam.enabled = false
+		$"1stbattle".enabled = false
 	elif global.current_scene == "world":
-		$housecam.enabled = false
-		$worldcam.enabled = true
 		$forestcam.enabled = false
+		$worldcam.enabled = true
+		$housecam.enabled = false
+		$dungeonentrancecam.enabled = false
+		$dungeoncam.enabled = false
+		$regret1cam.enabled = false
+		$"1stbattle".enabled = false
 	elif global.current_scene == "forest":
 		$forestcam.enabled = true
 		$worldcam.enabled = false
 		$housecam.enabled = false
+		$dungeonentrancecam.enabled = false
+		$dungeoncam.enabled = false
+		$regret1cam.enabled = false
+		$"1stbattle".enabled = false
 	elif global.current_scene == "dungeonentrance":
 		$forestcam.enabled = false
 		$worldcam.enabled = false
 		$housecam.enabled = false
 		$dungeonentrancecam.enabled = true
+		$dungeoncam.enabled = false
+		$regret1cam.enabled = false
+		$"1stbattle".enabled = false
 	elif global.current_scene == "dungeon":
 		$forestcam.enabled = false
 		$worldcam.enabled = false
 		$housecam.enabled = false
 		$dungeonentrancecam.enabled = false
 		$dungeoncam.enabled = true
+		$regret1cam.enabled = false
+		$"1stbattle".enabled = false
 	elif global.current_scene == "1st":
 		$forestcam.enabled = false
 		$worldcam.enabled = false

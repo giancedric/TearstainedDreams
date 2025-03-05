@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfjg3q6vm2gjf"]
+[gd_scene load_steps=12 format=3 uid="uid://bfjg3q6vm2gjf"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_d5shu"]
 [ext_resource type="Texture2D" uid="uid://bl5c58yqbpyrv" path="res://art/sr21146dc33d2aws3 (1).png" id="2_ek3m1"]
 [ext_resource type="FontFile" uid="uid://d2udxi2ym3hv2" path="res://art/fonts/monogram/monogram/ttf/monogram.ttf" id="3_dysda"]
+[ext_resource type="AudioStream" uid="uid://17ixor2f3dlk" path="res://music/bgmusic/mainmenu.ogg" id="5_bcbbg"]
+[ext_resource type="AudioStream" uid="uid://jvlc1w31v5c6" path="res://music/10_UI_Menu_SFX/013_Confirm_03.wav" id="6_pgr03"]
 [ext_resource type="FontFile" uid="uid://b5gi4bu0p1hmg" path="res://art/fonts/NES.tres" id="14_8g11h"]
 
 [sub_resource type="Animation" id="Animation_kx55u"]
@@ -176,5 +178,14 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_itird")
 text = "Exit
 "
 icon_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_bcbbg")
+volume_db = -10.0
+autoplay = true
+
+[node name="play" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_pgr03")
+volume_db = 3.0
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
