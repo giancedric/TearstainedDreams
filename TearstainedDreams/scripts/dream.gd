@@ -12,4 +12,6 @@ func _process(delta: float) -> void:
 	if not dialogue_shown:
 		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "firstregret")
 		dialogue_shown = true
+		await DialogueManager.dialogue_ended
+		get_tree().change_scene_to_file("res://scenes/battlescene.tscn")
 	

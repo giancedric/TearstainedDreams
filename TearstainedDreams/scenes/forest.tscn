@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bo4xj5fuwr4mj" path="res://art/waterfall/W1008.png" id="10_2eats"]
 [ext_resource type="Texture2D" uid="uid://bq8dge3sd2dms" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Tilled_Dirt.png" id="15_dqkh5"]
 [ext_resource type="PackedScene" uid="uid://7eqqsaqauerr" path="res://scenes/player.tscn" id="17_7t2hu"]
-[ext_resource type="AudioStream" path="res://music/forest.ogg" id="19_y0hk7"]
+[ext_resource type="AudioStream" uid="uid://dhtnsstluyaln" path="res://music/bgmusic/forest.ogg" id="19_fegkh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hjfu8"]
 texture = ExtResource("1_hmruc")
@@ -1756,10 +1756,9 @@ libraries = {
 autoplay = "flicker"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("19_y0hk7")
+stream = ExtResource("19_fegkh")
 volume_db = -10.0
 autoplay = true
-parameters/looping = true
 
 [connection signal="body_entered" from="changetomysticalforest" to="." method="_on_changetomysticalforest_body_entered"]
 [connection signal="animation_finished" from="flicker/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

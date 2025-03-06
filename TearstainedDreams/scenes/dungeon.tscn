@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cfhokavt6pem7" path="res://art/Water_drop/11.png" id="13_qvv18"]
 [ext_resource type="Texture2D" uid="uid://cqqntmd8mniwb" path="res://art/Water_drop/12.png" id="14_8iijt"]
 [ext_resource type="Texture2D" uid="uid://nvff6w2724sg" path="res://art/Water_drop/13.png" id="15_1y8p0"]
-[ext_resource type="AudioStream" path="res://music/default.ogg" id="16_t6g2s"]
+[ext_resource type="AudioStream" uid="uid://lhbna260o4o2" path="res://music/bgmusic/default.ogg" id="16_ygucd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2rmi"]
 size = Vector2(46.5, 62)
@@ -381,10 +381,9 @@ libraries = {
 movie_quit_on_finish = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("16_t6g2s")
+stream = ExtResource("16_ygucd")
 volume_db = -10.0
 autoplay = true
-parameters/looping = true
 
 [connection signal="body_entered" from="puzzle2/message" to="." method="_on_message_body_entered"]
 [connection signal="body_exited" from="puzzle2/message" to="." method="_on_message_body_exited"]

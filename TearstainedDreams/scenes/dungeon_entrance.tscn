@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/dungeon_entrance.gd" id="1_5pmiw"]
 [ext_resource type="TileSet" uid="uid://dca7xle24d2g2" path="res://art/dungeon.tres" id="2_4egpq"]
-[ext_resource type="AudioStream" path="res://music/forest.ogg" id="4_ym7l8"]
+[ext_resource type="AudioStream" uid="uid://lhbna260o4o2" path="res://music/bgmusic/default.ogg" id="4_hi2wl"]
 [ext_resource type="PackedScene" uid="uid://7eqqsaqauerr" path="res://scenes/player.tscn" id="7_7njo7"]
 
 [sub_resource type="Animation" id="Animation_fk3jp"]
@@ -89,10 +89,9 @@ position = Vector2(559.92, 424.46)
 shape = SubResource("RectangleShape2D_fbgjv")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_ym7l8")
+stream = ExtResource("4_hi2wl")
 volume_db = -10.0
 autoplay = true
-parameters/looping = true
 
 [connection signal="animation_finished" from="flicker/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
