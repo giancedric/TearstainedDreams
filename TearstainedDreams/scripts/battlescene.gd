@@ -61,12 +61,15 @@ func _process(delta: float) -> void:
 			global.current_health = 50
 			$VBoxContainer/enemy.visible = false
 			$VBoxContainer/AnimatedSprite2D.visible = true
+			$AudioStreamPlayer2D.stop()
+			$AudioStreamPlayer2D2.play()
+			
 			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "smokedefeat")
 			await DialogueManager.dialogue_ended
 			$fog.layer = -1
 			if $fog.layer == -1:
 				$ColorRect.visible = true
-				$ColorRect/AnimationPlayer.play("new_animation")
+				$ColorRect/AnimationPlayer2.play("new_animation")
 
 		
 
