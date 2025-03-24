@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c0mm1uclgl580"]
 
 [ext_resource type="Texture2D" uid="uid://c3o0u4papr8yk" path="res://art/dialogue_box.png" id="1_0nlqx"]
-[ext_resource type="Script" path="res://scripts/pulsing_button.gd" id="2_7ugtn"]
+[ext_resource type="Script" uid="uid://cx5eda2bsfl0m" path="res://scripts/pulsing_button.gd" id="2_7ugtn"]
 [ext_resource type="FontFile" uid="uid://b5gi4bu0p1hmg" path="res://art/fonts/NES.tres" id="2_awkkg"]
 
 [sub_resource type="Animation" id="Animation_o3cmg"]
@@ -38,8 +38,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hqvw8"]
 _data = {
-"Pulse": SubResource("Animation_o3cmg"),
-"RESET": SubResource("Animation_etd6n")
+&"Pulse": SubResource("Animation_o3cmg"),
+&"RESET": SubResource("Animation_etd6n")
 }
 
 [node name="PulsingButton" type="TextureRect"]

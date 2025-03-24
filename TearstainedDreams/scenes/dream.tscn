@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cdvu0uv8dqcoi"]
 
-[ext_resource type="Script" path="res://scripts/dream.gd" id="1_x8bue"]
+[ext_resource type="Script" uid="uid://d3mpxcfys3bey" path="res://scripts/dream.gd" id="1_x8bue"]
 [ext_resource type="PackedScene" uid="uid://ly82opnxmyfo" path="res://scenes/fog.tscn" id="2_646u5"]
 [ext_resource type="PackedScene" uid="uid://7eqqsaqauerr" path="res://scenes/player.tscn" id="3_nfdh2"]
 
@@ -51,9 +51,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kuri1"]
 _data = {
-"RESET": SubResource("Animation_vuyol"),
-"new_animation": SubResource("Animation_vywk3"),
-"new_animation_2": SubResource("Animation_ltjkt")
+&"RESET": SubResource("Animation_vuyol"),
+&"new_animation": SubResource("Animation_vywk3"),
+&"new_animation_2": SubResource("Animation_ltjkt")
 }
 
 [node name="dream" type="Node2D"]

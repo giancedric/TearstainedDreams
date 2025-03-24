@@ -1,6 +1,6 @@
 [gd_scene load_steps=67 format=3 uid="uid://54jv2ct3kcmk"]
 
-[ext_resource type="Script" path="res://scripts/house.gd" id="1_gcyrq"]
+[ext_resource type="Script" uid="uid://bggvahw5bndm0" path="res://scripts/house.gd" id="1_gcyrq"]
 [ext_resource type="Texture2D" uid="uid://blb1c7pv33md7" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Roof_Tilset.png" id="1_jjvvi"]
 [ext_resource type="Texture2D" uid="uid://wr6kf7ia6p8b" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Walls_Tilset.png" id="2_sjoj3"]
 [ext_resource type="Texture2D" uid="uid://dixohfavsushx" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Sprout Lands color pallet/Sprout Lands defautlt palette.png" id="3_hjgq3"]
@@ -1521,9 +1521,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tbho1"]
 _data = {
-"RESET": SubResource("Animation_6kwr7"),
-"fade": SubResource("Animation_c5ow2"),
-"fadein": SubResource("Animation_n04ef")
+&"RESET": SubResource("Animation_6kwr7"),
+&"fade": SubResource("Animation_c5ow2"),
+&"fadein": SubResource("Animation_n04ef")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_anv31"]

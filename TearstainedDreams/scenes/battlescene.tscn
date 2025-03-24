@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=4 uid="uid://byxydkjxhaxxw"]
 
-[ext_resource type="Script" path="res://scripts/battlescene.gd" id="1_ufcwt"]
+[ext_resource type="Script" uid="uid://clgf5kwg46c2t" path="res://scripts/battlescene.gd" id="1_ufcwt"]
 [ext_resource type="Resource" uid="uid://b6bxsskgtbpve" path="res://resources/smoke.tres" id="2_6jtuy"]
 [ext_resource type="PackedScene" uid="uid://ly82opnxmyfo" path="res://scenes/fog.tscn" id="2_lk8h3"]
 [ext_resource type="SpriteFrames" uid="uid://c276yjama0i6e" path="res://spriteframes/spawn.tres" id="3_r3qk8"]
@@ -58,9 +58,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uttas"]
 _data = {
-"RESET": SubResource("Animation_65rjm"),
-"new_animation": SubResource("Animation_bgvjv"),
-"new_animation_2": SubResource("Animation_weinh")
+&"RESET": SubResource("Animation_65rjm"),
+&"new_animation": SubResource("Animation_bgvjv"),
+&"new_animation_2": SubResource("Animation_weinh")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kidl0"]
@@ -361,8 +361,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ihe43"]
 _data = {
-"RESET": SubResource("Animation_khpnb"),
-"new_animation": SubResource("Animation_1vev2")
+&"RESET": SubResource("Animation_khpnb"),
+&"new_animation": SubResource("Animation_1vev2")
 }
 
 [node name="battlescene" type="Node2D"]

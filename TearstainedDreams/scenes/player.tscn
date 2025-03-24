@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://7eqqsaqauerr"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_f04s4"]
+[ext_resource type="Script" uid="uid://bs3rim1ae382g" path="res://scripts/player.gd" id="1_f04s4"]
 [ext_resource type="SpriteFrames" uid="uid://dfsmgaqhnmo6h" path="res://spriteframes/player.tres" id="2_b735l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rdyj4"]

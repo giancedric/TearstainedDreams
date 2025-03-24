@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bfjg3q6vm2gjf"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_d5shu"]
+[ext_resource type="Script" uid="uid://bdeguy00ig4oc" path="res://scripts/main_menu.gd" id="1_d5shu"]
 [ext_resource type="Texture2D" uid="uid://bl5c58yqbpyrv" path="res://art/sr21146dc33d2aws3 (1).png" id="2_ek3m1"]
 [ext_resource type="FontFile" uid="uid://d2udxi2ym3hv2" path="res://art/fonts/monogram/monogram/ttf/monogram.ttf" id="3_dysda"]
 [ext_resource type="AudioStream" uid="uid://17ixor2f3dlk" path="res://music/bgmusic/mainmenu.ogg" id="5_bcbbg"]
@@ -39,8 +39,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_68px3"]
 _data = {
-"RESET": SubResource("Animation_kx55u"),
-"fade": SubResource("Animation_b112w")
+&"RESET": SubResource("Animation_kx55u"),
+&"fade": SubResource("Animation_b112w")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_67hu6"]
@@ -110,7 +110,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BlackBg"]
 libraries = {
-"": SubResource("AnimationLibrary_68px3")
+&"": SubResource("AnimationLibrary_68px3")
 }
 autoplay = "fade"
 
