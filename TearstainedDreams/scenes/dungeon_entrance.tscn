@@ -73,7 +73,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="flicker"]
 libraries = {
-"": SubResource("AnimationLibrary_5b6an")
+&"": SubResource("AnimationLibrary_5b6an")
 }
 autoplay = "new_animation"
 
@@ -92,6 +92,7 @@ shape = SubResource("RectangleShape2D_fbgjv")
 stream = ExtResource("4_hi2wl")
 volume_db = -10.0
 autoplay = true
+parameters/looping = true
 
 [connection signal="animation_finished" from="flicker/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

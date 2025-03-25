@@ -1725,7 +1725,7 @@ layer_4/tile_data = PackedInt32Array(524338, 196618, 0, 458802, 196618, 0, 39326
 [node name="player" parent="." instance=ExtResource("17_7t2hu")]
 position = Vector2(0, 395)
 
-[node name="colisions" type="Area2D" parent="."]
+[node name="colisions" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="colisions"]
 polygon = PackedVector2Array(0, -1, 506, -2, 505, -73, 713, -70, 717, -8, 1149, 2, 1152, 656, -5, 652, -1, -22, -64, -7, -75, 421, -67, 701, 1210, 697, 1210, -58, 296, -139)
@@ -1751,7 +1751,7 @@ color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="flicker"]
 libraries = {
-"": SubResource("AnimationLibrary_m55bh")
+&"": SubResource("AnimationLibrary_m55bh")
 }
 autoplay = "flicker"
 
@@ -1759,6 +1759,7 @@ autoplay = "flicker"
 stream = ExtResource("19_fegkh")
 volume_db = -10.0
 autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="changetomysticalforest" to="." method="_on_changetomysticalforest_body_entered"]
 [connection signal="animation_finished" from="flicker/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

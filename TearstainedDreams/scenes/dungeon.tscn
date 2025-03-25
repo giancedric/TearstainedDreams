@@ -376,7 +376,7 @@ color = Color(1, 1, 1, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
 libraries = {
-"": SubResource("AnimationLibrary_mkag0")
+&"": SubResource("AnimationLibrary_mkag0")
 }
 movie_quit_on_finish = true
 
@@ -384,6 +384,7 @@ movie_quit_on_finish = true
 stream = ExtResource("16_ygucd")
 volume_db = -10.0
 autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="puzzle2/message" to="." method="_on_message_body_entered"]
 [connection signal="body_exited" from="puzzle2/message" to="." method="_on_message_body_exited"]

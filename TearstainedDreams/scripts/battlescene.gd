@@ -12,7 +12,7 @@ var fade_in_done = false
 
 var dialogue = false
 var death = false
-var final = true
+var final = false
 var echo = false
 
 

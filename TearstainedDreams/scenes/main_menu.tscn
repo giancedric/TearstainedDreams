@@ -183,6 +183,7 @@ icon_alignment = 1
 stream = ExtResource("5_bcbbg")
 volume_db = -10.0
 autoplay = true
+parameters/looping = true
 
 [node name="play" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_pgr03")

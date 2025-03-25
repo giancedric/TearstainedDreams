@@ -5,6 +5,7 @@ var dialogue_shown = false
 var player_in_area = false
 
 var cutscene_played = false
+var crash = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,7 +18,8 @@ func _ready() -> void:
 		$player.position.x = global.player_exit_house_posx
 		$player.position.y = global.player_exit_house_posy
 	$entity.visible = false
-	DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "start")
+	
+	
 	
 
 
@@ -30,6 +32,10 @@ func _process(_delta: float) -> void:
 	else:
 		$interacttext.visible = false
 	dialogue()
+	
+	
+		
+		
 
 func _on_house_transition_point_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
@@ -103,3 +109,11 @@ func dialogue():
 
 func _on_tear_animation_finished() -> void:
 	$tear.play("idle")
+
+
+func _on_crash_finished() -> void:
+	$AudioStreamPlayer2D.play()
+	$ColorRect.visible = false
+	$blackbg/AnimationPlayer.play("fade")
+	await $blackbg/AnimationPlayer.animation_finished
+	DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "start")

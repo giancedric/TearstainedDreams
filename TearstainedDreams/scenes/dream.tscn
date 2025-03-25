@@ -65,7 +65,7 @@ offset_bottom = 359.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
 libraries = {
-"": SubResource("AnimationLibrary_kuri1")
+&"": SubResource("AnimationLibrary_kuri1")
 }
 autoplay = "new_animation"
 

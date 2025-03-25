@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://54jv2ct3kcmk"]
+[gd_scene load_steps=68 format=3 uid="uid://54jv2ct3kcmk"]
 
 [ext_resource type="Script" uid="uid://bggvahw5bndm0" path="res://scripts/house.gd" id="1_gcyrq"]
 [ext_resource type="Texture2D" uid="uid://blb1c7pv33md7" path="res://art/tilesets/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Roof_Tilset.png" id="1_jjvvi"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c1x0sfic06l3m" path="res://art/tilesets/Floor.png" id="8_sw1qs"]
 [ext_resource type="PackedScene" uid="uid://7eqqsaqauerr" path="res://scenes/player.tscn" id="10_aiqry"]
 [ext_resource type="Texture2D" uid="uid://bunuk6pn8p02i" path="res://art/characters/Enemies/Golem/leftidle.png" id="12_3a8to"]
+[ext_resource type="AudioStream" uid="uid://crnfqnu2oasri" path="res://music/bgmusic/intro.mp3" id="12_3kuml"]
 [ext_resource type="Texture2D" uid="uid://yddfk4nsb45f" path="res://art/characters/Enemies/Golem/fullleft.png" id="12_nuebc"]
 [ext_resource type="Texture2D" uid="uid://cp18peo7egcny" path="res://art/Water_drop/1.png" id="15_1xax8"]
 [ext_resource type="FontFile" uid="uid://b5gi4bu0p1hmg" path="res://art/fonts/NES.tres" id="15_h8xqa"]
@@ -1804,19 +1805,22 @@ polygon = PackedVector2Array(380.17, 4.38992, 376.166, 190.6, 319.435, 189.933, 
 position = Vector2(303, 216)
 shape = SubResource("RectangleShape2D_cjr3i")
 
+[node name="crash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_3kuml")
+volume_db = -10.0
+autoplay = true
+
 [node name="blackbg" type="ColorRect" parent="."]
 offset_left = -60.0
 offset_top = -61.0
 offset_right = 453.0
 offset_bottom = 238.0
 color = Color(0, 0, 0, 0)
-metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="blackbg"]
 libraries = {
-"": SubResource("AnimationLibrary_tbho1")
+&"": SubResource("AnimationLibrary_tbho1")
 }
-autoplay = "fade"
 
 [node name="house_cutscene" type="Area2D" parent="."]
 
@@ -1866,9 +1870,17 @@ shape = SubResource("RectangleShape2D_uhj23")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_bfowd")
 volume_db = -10.0
-autoplay = true
+parameters/looping = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -161.0
+offset_top = -101.0
+offset_right = 545.0
+offset_bottom = 303.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="body_entered" from="house_transition_point" to="." method="_on_house_transition_point_body_entered"]
+[connection signal="finished" from="crash" to="." method="_on_crash_finished"]
 [connection signal="body_entered" from="house_cutscene" to="." method="_on_house_cutscene_body_entered"]
 [connection signal="body_exited" from="house_cutscene" to="." method="_on_house_cutscene_body_exited"]
 [connection signal="animation_finished" from="entity" to="." method="_on_entity_animation_finished"]
